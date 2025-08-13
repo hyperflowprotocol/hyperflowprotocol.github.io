@@ -19,7 +19,7 @@
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -121,7 +121,72 @@
             text-decoration: underline;
         }
         
-        /* Special styling for repository links */
+        /* Table Container Styling */
+        .table-container {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(77, 208, 225, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.1);
+        }
+        
+        .table-container h4 {
+            color: #00d4ff;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: 8px;
+        }
+        
+        .data-table, .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .data-table th, .comparison-table th {
+            background: rgba(0, 212, 255, 0.2);
+            color: #ffffff;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .data-table td, .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(77, 208, 225, 0.2);
+            color: #cbd5e0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-table tr:nth-child(even) td, .comparison-table tr:nth-child(even) td {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .data-table tr:hover td, .comparison-table tr:hover td {
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .hyperflow-advantage {
+            background: rgba(129, 199, 132, 0.2) !important;
+            color: #81c784 !important;
+            font-weight: 600;
+        }
+        
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        /* Repository Links */
         li a[href*="github.io"] {
             display: inline-block;
             padding: 8px 15px;
@@ -150,22 +215,37 @@
                 font-size: 1.5rem;
             }
             
-            h3 {
-                font-size: 1.3rem;
-            }
-            
-            h4 {
-                font-size: 1.1rem;
-            }
-            
             .container {
                 padding: 20px 15px;
+            }
+            
+            .table-container {
+                padding: 15px;
+                margin: 20px 0;
+            }
+            
+            .data-table th, .comparison-table th,
+            .data-table td, .comparison-table td {
+                padding: 8px 6px;
+                font-size: 0.9rem;
+            }
+            
+            .table-container h4 {
+                font-size: 1.2rem;
             }
             
             li a[href*="github.io"] {
                 display: block;
                 text-align: center;
                 margin: 10px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .data-table th, .comparison-table th,
+            .data-table td, .comparison-table td {
+                padding: 6px 4px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -175,6 +255,7 @@
         <h1>HyperFlow Protocol Whitepaper</h1>
 <h2>Advanced DeFi Infrastructure for HyperEVM</h2>
 <strong>Version 1.0 | January 2025</strong>
+<hr>
 <h2>Related Documentation</h2>
 <ul>
 <li><strong>Project Summary</strong>: https://Clockerwork02.github.io/hyperflow-summary</li>
@@ -184,9 +265,11 @@
 <li><strong>Utility Mechanisms</strong>: https://Clockerwork02.github.io/hyperflow-utility</li>
 <li><strong>Development Roadmap</strong>: https://Clockerwork02.github.io/hyperflow-roadmap</li>
 </ul>
+<hr>
 <h2>Abstract</h2>
 <p>HyperFlow Protocol introduces a next-generation DeFi infrastructure platform specifically designed for the HyperEVM ecosystem. By combining intelligent yield optimization, cross-protocol liquidity aggregation, and advanced risk management, HyperFlow addresses critical infrastructure gaps while delivering sustainable value through transparent revenue sharing and democratic governance.</p>
 <p>The protocol leverages native HyperCore integration via precompiles for direct orderbook access, enabling delta-neutral yield strategies and MEV-protected trade execution. With a fair tokenomics model allocating 50% of protocol revenue to token holders, HyperFlow represents a paradigm shift toward community-owned DeFi infrastructure.</p>
+<hr>
 <h2>1. Introduction</h2>
 <h3>1.1 Problem Statement</h3>
 <p>The HyperEVM ecosystem, while technically advanced, lacks sophisticated DeFi infrastructure comparable to established networks. Current limitations include:</p>
@@ -206,6 +289,7 @@
 <li><strong>MEV Protection</strong>: Advanced routing and slippage optimization</li>
 <li><strong>Institutional-Grade Risk Management</strong>: Comprehensive portfolio monitoring and protection</li>
 </ul>
+<hr>
 <h2>2. Technical Architecture</h2>
 <h3>2.1 Core Components</h3>
 <h4>2.1.1 Smart Vault System</h4>
@@ -283,42 +367,60 @@
 <li><strong>Stress testing</strong> under market scenarios</li>
 <li><strong>Optimal portfolio</strong> rebalancing suggestions</li>
 </ul>
+<hr>
 <h2>3. Token Economics</h2>
 <h3>3.1 FLOW Token Overview</h3>
 <strong>Symbol</strong>: FLOW
 <strong>Total Supply</strong>: 1,000,000,000 FLOW (fixed, no inflation)
 <strong>Standard</strong>: ERC-20 on HyperEVM
 <h3>3.2 Distribution Model</h3>
-<h4>Public Sale - 40%</h4>
-<ul>
-<li><strong>Amount</strong>: 400M FLOW tokens</li>
-<li><strong>Vesting</strong>: Immediate unlock</li>
-<li><strong>Purpose</strong>: Community distribution and initial liquidity</li>
-</ul>
-<h4>Development Fund - 25%  </h4>
-<ul>
-<li><strong>Amount</strong>: 250M FLOW tokens</li>
-<li><strong>Vesting</strong>: 4-year linear vesting</li>
-<li><strong>Purpose</strong>: Protocol development and maintenance</li>
-</ul>
-<h4>Community Rewards - 20%</h4>
-<ul>
-<li><strong>Amount</strong>: 200M FLOW tokens  </li>
-<li><strong>Vesting</strong>: Yield farming distribution</li>
-<li><strong>Purpose</strong>: Incentivizing platform participation</li>
-</ul>
-<h4>Team Allocation - 10%</h4>
-<ul>
-<li><strong>Amount</strong>: 100M FLOW tokens</li>
-<li><strong>Vesting</strong>: 2-year cliff, 4-year vesting</li>
-<li><strong>Purpose</strong>: Core team compensation and retention</li>
-</ul>
-<h4>Strategic Partnerships - 5%</h4>
-<ul>
-<li><strong>Amount</strong>: 50M FLOW tokens</li>
-<li><strong>Vesting</strong>: Performance-based unlock</li>
-<li><strong>Purpose</strong>: Key integrations and ecosystem growth</li>
-</ul>
+<div class="table-container">
+<h4>Token Distribution Model</h4>
+<div class="table-responsive">
+<table class="data-table">
+<thead>
+<tr>
+<th>Allocation</th>
+<th>Percentage</th>
+<th>Amount</th>
+<th>Vesting Schedule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Public Sale</strong></td>
+<td>40%</td>
+<td>400M FLOW</td>
+<td>Immediate unlock</td>
+</tr>
+<tr>
+<td><strong>Development Fund</strong></td>
+<td>25%</td>
+<td>250M FLOW</td>
+<td>4-year linear vesting</td>
+</tr>
+<tr>
+<td><strong>Community Rewards</strong></td>
+<td>20%</td>
+<td>200M FLOW</td>
+<td>Yield farming distribution</td>
+</tr>
+<tr>
+<td><strong>Team Allocation</strong></td>
+<td>10%</td>
+<td>100M FLOW</td>
+<td>2-year cliff, 4-year vesting</td>
+</tr>
+<tr>
+<td><strong>Strategic Partnerships</strong></td>
+<td>5%</td>
+<td>50M FLOW</td>
+<td>Performance-based unlock</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <h3>3.3 Utility Mechanisms</h3>
 <h4>3.3.1 Governance Rights</h4>
 <ul>
@@ -353,6 +455,7 @@
 <li><strong>Development Fund</strong>: 20% for protocol improvements</li>
 <li><strong>Treasury Reserve</strong>: 10% for emergencies and growth initiatives</li>
 </ul>
+<hr>
 <h2>4. Presale Structure</h2>
 <h3>4.1 Fair Launch Principles</h3>
 <p>HyperFlow adopts a democratic presale structure ensuring equal access for all participants:</p>
@@ -379,6 +482,7 @@
 <li><strong>Vesting</strong>: Immediate unlock for all participants</li>
 <li><strong>Bonus Distribution</strong>: 3,500 HYPE tokens distributed to participants</li>
 </ul>
+<hr>
 <h2>5. Roadmap & Development</h2>
 <h3>5.1 Phase 1: Foundation (Q1 2025)</h3>
 <strong>Objectives</strong>: Core infrastructure and security
@@ -436,6 +540,7 @@
 <li>Active Users: 10,000+</li>
 <li>Global presence: Multiple regions</li>
 </ul>
+<hr>
 <h2>6. Security & Risk Management</h2>
 <h3>6.1 Smart Contract Security</h3>
 <h4>6.1.1 Development Standards</h4>
@@ -471,6 +576,7 @@
 <li><strong>Rate Limiting</strong>: Maximum transfer amounts and delayed large withdrawals</li>
 <li><strong>Gradual Rollout</strong>: Phased deployment with TVL caps during initial periods</li>
 </ul>
+<hr>
 <h2>7. Governance Framework</h2>
 <h3>7.1 Decentralized Autonomous Organization (DAO)</h3>
 <h4>7.1.1 Governance Structure</h4>
@@ -502,6 +608,7 @@
 <li><strong>Community Input</strong>: Public feedback and expert opinions</li>
 <li><strong>Monitoring</strong>: Post-implementation tracking and assessment</li>
 </ul>
+<hr>
 <h2>8. Competitive Analysis</h2>
 <h3>8.1 Market Positioning</h3>
 <p>HyperFlow differentiates itself through:</p>
@@ -512,36 +619,53 @@
 <li><strong>Democratic Governance</strong>: Fair tokenomics without tier discrimination</li>
 </ul>
 <h3>8.2 Comparison with Competitors</h3>
-<h4>Revenue Share Comparison</h4>
-<ul>
-<li><strong>HyperFlow</strong>: 70% to token holders</li>
-<li><strong>Yearn Finance</strong>: 30% to token holders  </li>
-<li><strong>Convex Finance</strong>: 50% to token holders</li>
-</ul>
-<h4>Native Integration</h4>
-<ul>
-<li><strong>HyperFlow</strong>: ✓ Direct HyperCore access</li>
-<li><strong>Yearn Finance</strong>: ✗ No native integration</li>
-<li><strong>Convex Finance</strong>: ✗ Limited integration</li>
-</ul>
-<h4>Cross-Protocol Capabilities  </h4>
-<ul>
-<li><strong>HyperFlow</strong>: ✓ Advanced aggregation</li>
-<li><strong>Yearn Finance</strong>: Limited cross-protocol features</li>
-<li><strong>Convex Finance</strong>: Limited cross-protocol features</li>
-</ul>
-<h4>Delta-Neutral Strategies</h4>
-<ul>
-<li><strong>HyperFlow</strong>: ✓ Native delta-neutral vaults</li>
-<li><strong>Yearn Finance</strong>: ✗ Basic strategies only</li>
-<li><strong>Convex Finance</strong>: ✗ Limited strategy types</li>
-</ul>
-<h4>Fair Launch Model</h4>
-<ul>
-<li><strong>HyperFlow</strong>: ✓ Democratic, no tiers</li>
-<li><strong>Yearn Finance</strong>: ✗ Traditional launch</li>
-<li><strong>Convex Finance</strong>: ✗ Tier-based system</li>
-</ul>
+<div class="table-container">
+<h4>Competitor Comparison</h4>
+<div class="table-responsive">
+<table class="comparison-table">
+<thead>
+<tr>
+<th>Feature</th>
+<th>HyperFlow</th>
+<th>Yearn Finance</th>
+<th>Convex Finance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Revenue Share</strong></td>
+<td class="hyperflow-advantage">70%</td>
+<td>30%</td>
+<td>50%</td>
+</tr>
+<tr>
+<td><strong>Native Integration</strong></td>
+<td class="hyperflow-advantage">✓ HyperCore</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td><strong>Cross-Protocol</strong></td>
+<td class="hyperflow-advantage">✓ Advanced</td>
+<td>Limited</td>
+<td>Limited</td>
+</tr>
+<tr>
+<td><strong>Delta-Neutral</strong></td>
+<td class="hyperflow-advantage">✓ Native</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td><strong>Fair Launch</strong></td>
+<td class="hyperflow-advantage">✓ Democratic</td>
+<td>✗</td>
+<td>✗ Tier-based</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <h3>8.3 Competitive Advantages</h3>
 <ul>
 <li><strong>First-Mover Advantage</strong>: Early entry into HyperEVM DeFi infrastructure</li>
@@ -550,6 +674,7 @@
 <li><strong>Sustainable Economics</strong>: High revenue sharing ensuring long-term alignment</li>
 <li><strong>Comprehensive Solution</strong>: End-to-end DeFi infrastructure platform</li>
 </ul>
+<hr>
 <h2>9. Team & Advisors</h2>
 <h3>9.1 Core Team</h3>
 <h4>Lead Developer</h4>
@@ -590,13 +715,16 @@
 <li><strong>Services</strong>: Legal structure, regulatory compliance, token classification</li>
 <li><strong>Jurisdiction</strong>: Multiple international regulatory frameworks</li>
 </ul>
+<hr>
 <h2>10. Conclusion</h2>
 <p>HyperFlow Protocol represents a significant advancement in DeFi infrastructure for the HyperEVM ecosystem. By combining technical innovation with fair tokenomics and democratic governance, the protocol addresses critical market gaps while ensuring sustainable value creation for all participants.</p>
 <p>The combination of native HyperCore integration, advanced yield strategies, and transparent revenue sharing positions HyperFlow as the foundational infrastructure layer for HyperEVM DeFi. With a experienced team, comprehensive security framework, and clear development roadmap, HyperFlow is positioned to capture significant market share while delivering substantial returns to early supporters.</p>
 <p>The fair presale structure and democratic governance model reflect our commitment to building a truly community-owned protocol that prioritizes long-term sustainability over short-term speculation. As the HyperEVM ecosystem continues to grow, HyperFlow will serve as the critical infrastructure enabling the next generation of decentralized finance.</p>
+<hr>
 <h2>Disclaimer</h2>
 <p>This whitepaper is for informational purposes only and does not constitute investment advice, financial advice, trading advice, or any other sort of advice. The information contained herein is subject to change and may become outdated. Potential participants should conduct their own research and consult with qualified professionals before making any investment decisions.</p>
 <p>Cryptocurrency investments carry significant risk, including the potential for total loss of capital. Past performance does not guarantee future results. The HyperFlow Protocol is experimental technology and may contain bugs or vulnerabilities despite extensive testing and auditing.</p>
+<hr>
 <strong>Document Version</strong>: 1.0
 <strong>Last Updated</strong>: January 12, 2025
 <strong>Contact</strong>: team@hyperflow.protocol
