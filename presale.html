@@ -3,346 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyperFlow Protocol - Presale</title>
-    <link rel="stylesheet" href="presale-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Presale Details - HyperFlow Protocol</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0f1c;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 28, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .nav-links a.active {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.2);
+            font-weight: 600;
+        }
+        
+        /* Main content */
+        .content {
+            margin-top: 100px;
+            padding: 20px 0;
+        }
+        
+        h1 {
+            color: #00d4ff;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #4dd0e1;
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid rgba(77, 208, 225, 0.3);
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            color: #81c784;
+            font-size: 1.4rem;
+            margin: 25px 0 10px 0;
+        }
+        
+        h4 {
+            color: #ffb74d;
+            font-size: 1.2rem;
+            margin: 20px 0 8px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #cbd5e0;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: #cbd5e0;
+        }
+        
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        em {
+            color: #a0aec0;
+        }
+        
+        code {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .code-block pre {
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .code-block code {
+            background: none;
+            color: #e2e8f0;
+            padding: 0;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+            margin: 30px 0;
+        }
+        
+        a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #4dd0e1;
+            text-decoration: underline;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .nav-links a {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+            
+            .content {
+                margin-top: 140px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="hyperflow_logo.svg?v=8" alt="HyperFlow Protocol" class="logo-svg">
+        <div class="nav-content">
+            <div class="logo">HyperFlow Protocol</div>
+            <div class="nav-links">
+                <a href="index.html" class="">Home</a><a href="summary.html" class="">Summary</a><a href="tokenomics.html" class="">Tokenomics</a><a href="architecture.html" class="">Architecture</a><a href="presale.html" class="active">Presale</a><a href="utility.html" class="">Utility</a><a href="roadmap.html" class="">Roadmap</a>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Main Site</a></li>
-                <li><a href="whitepaper.html" target="_blank">Whitepaper</a></li>
-                <li><a href="#presale" class="cta-button">Join Presale</a></li>
-            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-background"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="title-gradient">HyperFlow Presale</span>
-                    <span class="title-subtitle">Fair Access • Democratic Distribution • No Tiers</span>
-                </h1>
-                <p class="hero-description">
-                    Join the HyperFlow Protocol presale with equal access for all participants. 
-                    No minimum investment, no tier discrimination, no whale advantages.
-                </p>
-                
-                <div class="presale-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">5M</div>
-                        <div class="stat-label">FLOW Tokens</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">$0.005</div>
-                        <div class="stat-label">Token Price</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">$25K</div>
-                        <div class="stat-label">Total Raise</div>
-                    </div>
-                </div>
-
-                <div class="presale-timer">
-                    <h3>Presale Status</h3>
-                    <div class="timer-display">
-                        <div class="timer-item">
-                            <div class="timer-number" id="days">--</div>
-                            <div class="timer-label">Days</div>
-                        </div>
-                        <div class="timer-item">
-                            <div class="timer-number" id="hours">--</div>
-                            <div class="timer-label">Hours</div>
-                        </div>
-                        <div class="timer-item">
-                            <div class="timer-number" id="minutes">--</div>
-                            <div class="timer-label">Minutes</div>
-                        </div>
-                        <div class="timer-item">
-                            <div class="timer-number" id="seconds">--</div>
-                            <div class="timer-label">Seconds</div>
-                        </div>
-                    </div>
-                    <p class="timer-status">Presale launches Q2 2025</p>
-                </div>
-            </div>
+    <div class="container">
+        <div class="content">
+            <h1>HyperFlow Protocol Public Presale</h1>
+<h2>Presale Overview</h2>
+<strong>Token</strong>: $FLOW
+<strong>Presale Allocation</strong>: 5,000,000 FLOW (5% of total supply)
+<strong>Presale Price</strong>: $0.005 per FLOW token
+<strong>Total Raise</strong>: $25,000 USD
+<strong>Initial Market Cap</strong>: $500,000 (at presale price)
+<h2>Presale Structure</h2>
+<h3>Single Phase Public Sale</h3>
+<ul>
+<li><strong>Allocation</strong>: 5,000,000 FLOW (100% of presale)</li>
+<li><strong>Price</strong>: $0.005 per FLOW</li>
+<li><strong>Raise Target</strong>: $25,000</li>
+<li><strong>Duration</strong>: 4 weeks</li>
+<li><strong>Vesting</strong>: Immediate unlock at launch</li>
+</ul>
+<h3>Total Presale Target: $25,000</h3>
+<h2>Fair Public Sale - No Tiers</h2>
+<h3>Equal Access for All Participants</h3>
+<ul>
+<li><strong>No minimum investment</strong> - Start with any amount</li>
+<li><strong>No maximum limits</strong> - Buy as much as you want (subject to allocation)</li>
+<li><strong>Same benefits for everyone</strong> - All participants get equal treatment</li>
+<li><strong>Phase-based bonuses only</strong> - Earlier phases get higher bonuses</li>
+</ul>
+<h3>Universal Benefits for All Participants</h3>
+<ul>
+<li><strong>Governance Rights</strong>: All token holders can vote on protocol decisions</li>
+<li><strong>Revenue Sharing</strong>: All stakers receive equal percentage of protocol fees</li>
+<li><strong>Platform Access</strong>: Everyone gets full access to all protocol features</li>
+<li><strong>Community Membership</strong>: Equal participation in ecosystem growth</li>
+</ul>
+<h2>Vesting Schedule</h2>
+<h3>Presale Token Release</h3>
+<ul>
+<li><strong>Phase 1 (Early Bird)</strong>: 6-month linear vesting</li>
+<li><strong>Phase 2 (Standard)</strong>: 3-month linear vesting  </li>
+<li><strong>Phase 3 (Final)</strong>: Immediate unlock at launch</li>
+<li><strong>Bonus Tokens</strong>: Same vesting as base allocation</li>
+</ul>
+<h3>Anti-Dump Mechanisms</h3>
+<ul>
+<li><strong>Gradual Release</strong>: Prevents large sell pressure</li>
+<li><strong>Staking Incentives</strong>: Higher rewards for longer locks</li>
+<li><strong>Utility Requirements</strong>: Many features require token holding</li>
+<li><strong>Community Governance</strong>: Aligned long-term interests</li>
+</ul>
+<h2>Presale Terms & Conditions</h2>
+<h3>Accepted Payment Methods</h3>
+<ul>
+<li><strong>HYPE</strong>: Primary payment method (HyperEVM native)</li>
+<li><strong>USDC</strong>: Stablecoin alternative  </li>
+<li><strong>USDT</strong>: Additional stablecoin option</li>
+<li><strong>ETH</strong>: Cross-chain bridge payments accepted</li>
+</ul>
+<h3>Public Sale Limits</h3>
+<ul>
+<li><strong>Individual Minimum</strong>: No minimum - start with any amount</li>
+<li><strong>Individual Maximum</strong>: No maximum - subject to phase allocation limits</li>
+<li><strong>Total Hard Cap</strong>: $25,000 USD</li>
+<li><strong>Soft Cap</strong>: $10,000 USD (minimum for launch)</li>
+<li><strong>First Come, First Served</strong>: Each phase fills up based on participation order</li>
+</ul>
+<h3>Geographic Restrictions</h3>
+<ul>
+<li><strong>Excluded</strong>: US, China, North Korea, Iran, Syria</li>
+<li><strong>KYC Required</strong>: Optional for all participants</li>
+<li><strong>Compliance</strong>: Full regulatory compliance in all jurisdictions</li>
+</ul>
+<h2>Use of Funds</h2>
+<h3>Development (60% - $15,000)</h3>
+<ul>
+<li><strong>Smart Contract Development</strong>: $5,000</li>
+<li><strong>Frontend Development</strong>: $3,000  </li>
+<li><strong>Backend Infrastructure</strong>: $2,500</li>
+<li><strong>Security Audits</strong>: $2,000</li>
+<li><strong>Testing & QA</strong>: $1,500</li>
+<li><strong>Integration Development</strong>: $1,000</li>
+</ul>
+<h3>Marketing & Growth (25% - $6,250)</h3>
+<ul>
+<li><strong>Community Building</strong>: $2,500</li>
+<li><strong>Influencer Partnerships</strong>: $1,500</li>
+<li><strong>Content Creation</strong>: $1,000</li>
+<li><strong>Social Media</strong>: $750</li>
+<li><strong>PR & Media</strong>: $500</li>
+</ul>
+<h3>Operations (10% - $2,500)</h3>
+<ul>
+<li><strong>Initial Team Costs</strong>: $1,500</li>
+<li><strong>Legal & Compliance</strong>: $500</li>
+<li><strong>Tools & Services</strong>: $300</li>
+<li><strong>Administrative Costs</strong>: $200</li>
+</ul>
+<h3>Liquidity & Market Making (5% - $1,250)</h3>
+<ul>
+<li><strong>Initial DEX Liquidity</strong>: $1,000</li>
+<li><strong>Market Making Support</strong>: $250</li>
+</ul>
+<h2>Token Launch Plan</h2>
+<h3>DEX Listing Strategy</h3>
+<ul>
+<li><strong>HyperSwap</strong>: Primary listing at $0.002-0.005</li>
+<li><strong>Initial Liquidity</strong>: $1,000 FLOW/HYPE pair</li>
+<li><strong>Liquidity Lock</strong>: 12 months to prevent rug pull</li>
+<li><strong>Trading Start</strong>: 24 hours after presale completion</li>
+</ul>
+<h3>Yield Farming Launch</h3>
+<ul>
+<li><strong>Farming Pools</strong>: 300M FLOW over 4 years</li>
+<li><strong>Initial APY</strong>: 200-500% for early adopters</li>
+<li><strong>Supported Pairs</strong>: FLOW/HYPE, FLOW/USDC, FLOW/ETH</li>
+<li><strong>Cross-Protocol Incentives</strong>: Additional rewards for multi-platform usage</li>
+</ul>
+<h2>Presale Timeline</h2>
+<h3>Preparation Phase (Week 1-2)</h3>
+<ul>
+<li>Smart contract audits completion</li>
+<li>Marketing campaign launch</li>
+<li>Community building and partnerships</li>
+<li>KYC/AML system implementation</li>
+</ul>
+<h3>Presale Phase 1: Early Bird (Week 3-4)</h3>
+<ul>
+<li>Exclusive access for whitelisted investors</li>
+<li>$0.08 price with maximum bonuses</li>
+<li>Limited to 20M FLOW allocation</li>
+</ul>
+<h3>Presale Phase 2: Public (Week 5-8)  </h3>
+<ul>
+<li>Open to all qualified investors</li>
+<li>$0.10 standard price</li>
+<li>Main fundraising period</li>
+</ul>
+<h3>Presale Phase 3: Final (Week 9)</h3>
+<ul>
+<li>Last chance at presale pricing</li>
+<li>$0.12 price, immediate unlock</li>
+<li>Preparation for DEX launch</li>
+</ul>
+<h3>Launch Phase (Week 10)</h3>
+<ul>
+<li>DEX listing and trading start</li>
+<li>Yield farming activation  </li>
+<li>Protocol features go live</li>
+</ul>
+<h2>Investment ROI Projections</h2>
+<h3>Conservative Scenario</h3>
+<ul>
+<li><strong>Launch Price</strong>: $0.002 (300% gain from $0.0005 presale)</li>
+<li><strong>6-Month Target</strong>: $0.01 (1900% total return)</li>
+<li><strong>12-Month Target</strong>: $0.05 (9900% total return)</li>
+<li><strong>Revenue Sharing</strong>: 25-35% APY from staking</li>
+</ul>
+<h3>Optimistic Scenario  </h3>
+<ul>
+<li><strong>Launch Price</strong>: $0.005 (900% gain from $0.0005 presale)</li>
+<li><strong>6-Month Target</strong>: $0.02 (3900% total return)</li>
+<li><strong>12-Month Target</strong>: $0.10 (19900% total return)</li>
+<li><strong>Revenue Sharing</strong>: 50-100% APY from staking</li>
+</ul>
+<h3>Risk Factors</h3>
+<ul>
+<li>Market volatility and crypto bear markets</li>
+<li>Competition from other HyperEVM protocols</li>
+<li>Regulatory changes affecting DeFi</li>
+<li>Technical risks and smart contract vulnerabilities</li>
+</ul>
+<strong>Disclaimer</strong>: All projections are estimates based on market analysis and comparable projects. Cryptocurrency investments carry significant risk and past performance does not guarantee future results.
+<h2>How to Participate</h2>
+<ul>
+<li><strong>Join Whitelist</strong>: Visit hyperflow.finance and register</li>
+<li><strong>Complete KYC</strong>: Required for investments above $10,000</li>
+<li><strong>Prepare Funds</strong>: HYPE, USDC, USDT, or ETH ready</li>
+<li><strong>Monitor Phases</strong>: Early bird gets best pricing</li>
+<li><strong>Stake Immediately</strong>: Maximize rewards from day one</li>
+</ul>
+<p>The presale represents an exceptional opportunity to join the future of HyperEVM DeFi infrastructure at the ground floor with significant upside potential and sustainable revenue sharing.</p>
         </div>
-    </section>
-
-    <!-- Presale Details -->
-    <section class="presale-details" id="presale">
-        <div class="container">
-            <h2 class="section-title">Presale Information</h2>
-            
-            <div class="details-grid">
-                <div class="detail-card main-card">
-                    <h3>Presale Overview</h3>
-                    <div class="detail-list">
-                        <div class="detail-row">
-                            <span class="detail-label">Total Allocation</span>
-                            <span class="detail-value">5,000,000 FLOW (5%)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Token Price</span>
-                            <span class="detail-value highlight">$0.005</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Total Raise</span>
-                            <span class="detail-value">$25,000</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Minimum Purchase</span>
-                            <span class="detail-value">No Limit</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Maximum Purchase</span>
-                            <span class="detail-value">No Limit</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Vesting Schedule</span>
-                            <span class="detail-value">Immediate Unlock</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-card">
-                    <h3>How to Participate</h3>
-                    <div class="participation-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Connect Wallet</h4>
-                                <p>Use MetaMask or any Web3 wallet compatible with HyperEVM</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Enter Amount</h4>
-                                <p>Choose your investment amount (no minimum required)</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Confirm Transaction</h4>
-                                <p>Review details and confirm your presale participation</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>Receive Tokens</h4>
-                                <p>FLOW tokens are immediately available in your wallet</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-card">
-                    <h3>Democratic Principles</h3>
-                    <div class="principles-list">
-                        <div class="principle-item">
-                            <div class="principle-icon">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
-                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>No Tier System</h4>
-                                <p>Everyone gets the same price and terms</p>
-                            </div>
-                        </div>
-                        <div class="principle-item">
-                            <div class="principle-icon">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
-                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>No Minimum Investment</h4>
-                                <p>Participate with any amount you're comfortable with</p>
-                            </div>
-                        </div>
-                        <div class="principle-item">
-                            <div class="principle-icon">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
-                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Fair Distribution</h4>
-                                <p>First-come, first-served until allocation is filled</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Wallet Connection -->
-    <section class="wallet-section">
-        <div class="container">
-            <div class="wallet-card">
-                <h3>Connect Your Wallet</h3>
-                <p>Connect your Web3 wallet to participate in the HyperFlow presale</p>
-                
-                <div class="wallet-status" id="walletStatus">
-                    <div class="status-disconnected">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 16V8A2 2 0 0019 6H5A2 2 0 003 8V16A2 2 0 005 18H19A2 2 0 0021 16Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M7 2V6M17 2V6" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>Wallet Not Connected</span>
-                    </div>
-                </div>
-
-                <button class="connect-button" id="connectWallet">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 16V8A2 2 0 0019 6H5A2 2 0 003 8V16A2 2 0 005 18H19A2 2 0 0021 16Z" stroke="currentColor" stroke-width="2"/>
-                        <path d="M7 2V6M17 2V6" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Connect Wallet
-                </button>
-
-                <div class="presale-form" id="presaleForm" style="display: none;">
-                    <h4>Purchase FLOW Tokens</h4>
-                    <div class="form-group">
-                        <label for="ethAmount">Investment Amount (ETH)</label>
-                        <input type="number" id="ethAmount" placeholder="0.0" step="0.0001" min="0">
-                        <div class="conversion-info">
-                            <span id="flowAmount">0 FLOW tokens</span>
-                            <span id="usdAmount">≈ $0.00</span>
-                        </div>
-                    </div>
-                    
-                    <button class="purchase-button" id="purchaseButton" disabled>
-                        Purchase FLOW Tokens
-                    </button>
-                    
-                    <div class="purchase-info">
-                        <p>• Tokens are immediately available after purchase</p>
-                        <p>• No vesting period or lock-up</p>
-                        <p>• Gas fees apply for HyperEVM transactions</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Progress Section -->
-    <section class="progress-section">
-        <div class="container">
-            <h3>Presale Progress</h3>
-            <div class="progress-card">
-                <div class="progress-stats">
-                    <div class="progress-stat">
-                        <div class="stat-value" id="raisedAmount">$0</div>
-                        <div class="stat-label">Raised</div>
-                    </div>
-                    <div class="progress-stat">
-                        <div class="stat-value" id="participantCount">0</div>
-                        <div class="stat-label">Participants</div>
-                    </div>
-                    <div class="progress-stat">
-                        <div class="stat-value" id="tokensRemaining">5,000,000</div>
-                        <div class="stat-label">FLOW Remaining</div>
-                    </div>
-                </div>
-                
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                </div>
-                <div class="progress-percentage" id="progressPercentage">0% Complete</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Important Information -->
-    <section class="info-section">
-        <div class="container">
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4>Token Utility</h4>
-                    <ul>
-                        <li>Governance voting rights</li>
-                        <li>50% revenue sharing through staking</li>
-                        <li>Fee discounts on platform services</li>
-                        <li>Access to premium features</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card">
-                    <h4>Security & Audits</h4>
-                    <ul>
-                        <li>$275K total security budget</li>
-                        <li>Professional audits by Trail of Bits</li>
-                        <li>Multi-signature governance wallet</li>
-                        <li>$50K bug bounty program</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card">
-                    <h4>Launch Timeline</h4>
-                    <ul>
-                        <li>Q2 2025: Presale & Development</li>
-                        <li>Q3 2025: Security Audits</li>
-                        <li>Q4 2025: Mainnet Launch</li>
-                        <li>Q1 2026: Feature Expansion</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <img src="hyperflow_logo.svg?v=8" alt="HyperFlow Protocol" class="logo-svg">
-                    </div>
-                    <p>Advanced DeFi infrastructure for the HyperEVM ecosystem</p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Resources</h4>
-                        <a href="index.html">Main Website</a>
-                        <a href="whitepaper.html">Whitepaper</a>
-                        <a href="index.html#security">Security</a>
-                        <a href="index.html#support">Support</a>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4>Community</h4>
-                        <a href="#discord">Discord</a>
-                        <a href="#telegram">Telegram</a>
-                        <a href="#twitter">Twitter</a>
-                        <a href="#github">GitHub</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 HyperFlow Protocol. Participate responsibly in DeFi.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="presale-script.js"></script>
+    </div>
 </body>
 </html>
