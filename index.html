@@ -1,1008 +1,161 @@
-<!-- Updated: 2025-08-13T05:34:38.467Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyperFlow Protocol Whitepaper</title>
+    <title>HyperFlow Protocol - Documentation</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0f1c;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px 60px 20px;
-        }
-        
-        h1 {
-            color: #00d4ff;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        
-        h2 {
-            color: #4dd0e1;
-            font-size: 1.8rem;
-            margin: 30px 0 15px 0;
-            border-bottom: 2px solid rgba(77, 208, 225, 0.3);
-            padding-bottom: 8px;
-        }
-        
-        h3 {
-            color: #81c784;
-            font-size: 1.4rem;
-            margin: 25px 0 10px 0;
-        }
-        
-        h4 {
-            color: #ffb74d;
-            font-size: 1.2rem;
-            margin: 20px 0 8px 0;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            color: #cbd5e0;
-        }
-        
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 25px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-            color: #cbd5e0;
-        }
-        
-        strong {
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a2332 100%);
             color: #ffffff;
-            font-weight: 600;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
         }
-        
-        em {
-            color: #a0aec0;
-        }
-        
-        code {
-            background: rgba(0, 212, 255, 0.1);
-            color: #00d4ff;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.9em;
-        }
-        
-        .code-block {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 8px;
-            margin: 20px 0;
-            overflow-x: auto;
-        }
-        
-        .code-block pre {
-            padding: 20px;
-            margin: 0;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        
-        .code-block code {
-            background: none;
-            color: #e2e8f0;
-            padding: 0;
-            font-size: 0.85rem;
-        }
-        
-        hr {
-            border: none;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
-            margin: 30px 0;
-        }
-        
-        .docs-links {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(77, 208, 225, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.1);
-        }
-        
-        .docs-links h2 {
-            color: #00d4ff;
+
+        .container {
+            max-width: 800px;
             text-align: center;
-            margin-bottom: 20px;
-            border: none;
-            padding-bottom: 0;
         }
-        
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #00d4ff, #00a3ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d4ff, #00a3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b0c4de;
+            margin-bottom: 3rem;
+        }
+
         .docs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
-        
-        .doc-link {
-            display: block;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 12px;
-            padding: 18px 24px;
-            text-decoration: none;
-            color: #ffffff;
+
+        .doc-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
             transition: all 0.3s ease;
-            font-weight: 600;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-        
-        .doc-link:hover {
-            background: rgba(0, 212, 255, 0.25);
-            border-color: rgba(0, 212, 255, 0.6);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
-            color: #00d4ff;
             text-decoration: none;
+            color: inherit;
         }
-        
-        .doc-link:active {
-            transform: translateY(0px);
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
-        }
-        
-        .table-container {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(77, 208, 225, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.1);
-        }
-        
-        .table-container h4 {
-            color: #00d4ff;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-        
-        .table-responsive {
-            overflow-x: auto;
-            border-radius: 8px;
-        }
-        
-        .data-table, .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .data-table th, .comparison-table th {
-            background: rgba(0, 212, 255, 0.2);
-            color: #ffffff;
-            padding: 15px 12px;
-            text-align: left;
-            font-weight: 600;
-            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
-        }
-        
-        .data-table td, .comparison-table td {
-            padding: 12px;
-            border-bottom: 1px solid rgba(77, 208, 225, 0.2);
-            color: #cbd5e0;
-            background: rgba(0, 0, 0, 0.1);
-        }
-        
-        .data-table tr:nth-child(even) td, .comparison-table tr:nth-child(even) td {
-            background: rgba(0, 0, 0, 0.2);
-        }
-        
-        .data-table tr:hover td, .comparison-table tr:hover td {
+
+        .doc-card:hover {
             background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-5px);
         }
-        
-        .hyperflow-advantage {
-            background: rgba(129, 199, 132, 0.2) !important;
-            color: #81c784 !important;
-            font-weight: 600;
+
+        .doc-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #00d4ff;
         }
-        
-        .comparison-table td:first-child {
-            font-weight: 600;
-            color: #ffffff;
+
+        .doc-card p {
+            color: #b0c4de;
+            font-size: 0.95rem;
         }
-        
+
         .footer {
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(77, 208, 225, 0.3);
-            text-align: center;
-            color: #7b8794;
-            font-size: 0.9rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #7a8ba0;
         }
-        
-        .footer p {
-            margin-bottom: 8px;
-        }
-        
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
             
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            .container {
-                padding: 20px 15px 40px 15px;
-            }
-            
             .docs-grid {
                 grid-template-columns: 1fr;
-                gap: 10px;
             }
             
-            .doc-link {
-                padding: 12px 15px;
-            }
-            
-            .table-container {
-                padding: 15px;
-                margin: 20px 0;
-            }
-            
-            .data-table th, .comparison-table th,
-            .data-table td, .comparison-table td {
-                padding: 8px 6px;
-                font-size: 0.9rem;
+            .doc-card {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>HyperFlow Protocol Whitepaper</h1>
-        <h2>Advanced DeFi Infrastructure for HyperEVM</h2>
-        <p><strong>Version 1.0 | January 2025</strong></p>
-        
-        <hr>
-        
-        <div class="docs-links">
-            <h2>Related Documentation</h2>
-            <div class="docs-grid">
-                <a href="https://clockerwork02.github.io/hyperflow-summary" class="doc-link" target="_blank">
-                    Project Summary
-                </a>
-                <a href="https://clockerwork02.github.io/hyperflow-tokenomics" class="doc-link" target="_blank">
-                    Tokenomics
-                </a>
-                <a href="https://clockerwork02.github.io/hyperflow-architecture" class="doc-link" target="_blank">
-                    Technical Architecture
-                </a>
-                <a href="https://clockerwork02.github.io/hyperflow-presale" class="doc-link" target="_blank">
-                    Presale Details
-                </a>
-                <a href="https://clockerwork02.github.io/hyperflow-utility" class="doc-link" target="_blank">
-                    Utility Mechanisms
-                </a>
-                <a href="#roadmap" class="doc-link">
-                    Development Roadmap
-                </a>
-            </div>
-        </div>
-        
-        <hr>
-        
-        <h2>Abstract</h2>
-        <p>HyperFlow Protocol introduces a next-generation DeFi infrastructure platform specifically designed for the HyperEVM ecosystem. By combining intelligent yield optimization, cross-protocol liquidity aggregation, and advanced risk management, HyperFlow addresses critical infrastructure gaps while delivering sustainable value through transparent revenue sharing and democratic governance.</p>
-        
-        <p>The protocol leverages native HyperCore integration via precompiles for direct orderbook access, enabling delta-neutral yield strategies and MEV-protected trade execution. With a fair tokenomics model allocating 70% of protocol revenue to token holders, HyperFlow represents a paradigm shift toward community-owned DeFi infrastructure.</p>
-        
-        <hr>
-        
-        <h2>1. Introduction</h2>
-        
-        <h3>1.1 Problem Statement</h3>
-        <p>The HyperEVM ecosystem currently lacks sophisticated DeFi infrastructure capable of optimizing yields across multiple protocols while maintaining security and user accessibility. Existing solutions suffer from:</p>
-        
-        <ul>
-            <li><strong>Fragmented Liquidity</strong>: Assets scattered across multiple protocols without unified management</li>
-            <li><strong>Limited Cross-Protocol Integration</strong>: Inefficient manual management across different DeFi platforms</li>
-            <li><strong>MEV Exploitation</strong>: Users losing value to maximum extractable value without protection</li>
-            <li><strong>High Complexity</strong>: Technical barriers preventing mainstream DeFi adoption</li>
-            <li><strong>Centralized Governance</strong>: Traditional platforms with limited user influence on protocol direction</li>
-        </ul>
-        
-        <h3>1.2 Solution Overview</h3>
-        <p>HyperFlow Protocol addresses these challenges through a comprehensive DeFi infrastructure platform featuring:</p>
-        
-        <ul>
-            <li><strong>Intelligent Yield Aggregation</strong>: Automated optimization across multiple yield sources</li>
-            <li><strong>Native HyperCore Integration</strong>: Direct orderbook access via precompiles for enhanced efficiency</li>
-            <li><strong>Advanced Risk Management</strong>: Delta-neutral strategies and comprehensive protection mechanisms</li>
-            <li><strong>Democratic Governance</strong>: Community-driven protocol decisions with transparent tokenomics</li>
-            <li><strong>MEV Protection</strong>: Advanced routing and slippage optimization to protect user value</li>
-        </ul>
-        
-        <h2>2. Technical Architecture</h2>
-        
-        <h3>2.1 Core Components</h3>
-        
-        <h4>Smart Vault System</h4>
-        <p>The HyperFlow vault system employs automated strategies for yield optimization.</p>
-        
-        <h4>HyperCore Integration</h4>
-        <p>Direct orderbook access through HyperEVM precompiles for enhanced performance and efficiency.</p>
-        
-        <h3>2.2 Security Framework</h3>
-        
-        <div class="table-container">
-            <h4>Security Measures</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Component</th>
-                            <th>Implementation</th>
-                            <th>Purpose</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>OpenZeppelin Libraries</strong></td>
-                            <td>Industry-standard modules</td>
-                            <td>Proven security patterns</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Formal Verification</strong></td>
-                            <td>Mathematical proofs</td>
-                            <td>Contract correctness</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Multi-Sig Governance</strong></td>
-                            <td>5-of-9 signatures</td>
-                            <td>Distributed control</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Timelock Contracts</strong></td>
-                            <td>48-hour delays</td>
-                            <td>Parameter change protection</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Emergency Pause</strong></td>
-                            <td>Circuit breakers</td>
-                            <td>Risk mitigation</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Audit Program</strong></td>
-                            <td>Continuous security reviews</td>
-                            <td>Vulnerability prevention</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h2>3. Tokenomics</h2>
-        
-        <h3>3.1 FLOW Token Distribution</h3>
-        
-        <div class="table-container">
-            <h4>Token Allocation Breakdown</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Allocation</th>
-                            <th>Percentage</th>
-                            <th>Amount</th>
-                            <th>Vesting Schedule</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Public Sale</strong></td>
-                            <td>40%</td>
-                            <td>400M FLOW</td>
-                            <td>Immediate unlock</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Development Fund</strong></td>
-                            <td>25%</td>
-                            <td>250M FLOW</td>
-                            <td>4-year linear vesting</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Community Rewards</strong></td>
-                            <td>20%</td>
-                            <td>200M FLOW</td>
-                            <td>Yield farming distribution</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Team Allocation</strong></td>
-                            <td>10%</td>
-                            <td>100M FLOW</td>
-                            <td>2-year cliff, 4-year vesting</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Strategic Partnerships</strong></td>
-                            <td>5%</td>
-                            <td>50M FLOW</td>
-                            <td>Performance-based unlock</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h3>3.2 Revenue Distribution</h3>
-        
-        <div class="table-container">
-            <h4>Revenue Allocation</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Recipient</th>
-                            <th>Percentage</th>
-                            <th>Purpose</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Token Holders</strong></td>
-                            <td>70%</td>
-                            <td>Staking rewards distribution</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Development Fund</strong></td>
-                            <td>20%</td>
-                            <td>Protocol improvements</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Treasury Reserve</strong></td>
-                            <td>10%</td>
-                            <td>Emergency fund and growth</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h3>3.3 Utility Mechanisms</h3>
-        <p>The FLOW token provides comprehensive utility across the protocol ecosystem through governance rights, revenue sharing, yield enhancement, fee discounts, priority access, and collateral usage.</p>
-        
-        <h2>4. Competitive Analysis</h2>
-        
-        <div class="table-container">
-            <h4>HyperFlow vs Competitors</h4>
-            <div class="table-responsive">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>HyperFlow</th>
-                            <th>Yearn Finance</th>
-                            <th>Convex Finance</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Revenue Share</strong></td>
-                            <td class="hyperflow-advantage">70%</td>
-                            <td>30%</td>
-                            <td>50%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Native Integration</strong></td>
-                            <td class="hyperflow-advantage">✓ HyperCore</td>
-                            <td>✗</td>
-                            <td>✗</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cross-Protocol</strong></td>
-                            <td class="hyperflow-advantage">✓ Advanced</td>
-                            <td>Limited</td>
-                            <td>Limited</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Delta-Neutral</strong></td>
-                            <td class="hyperflow-advantage">✓ Native</td>
-                            <td>✗</td>
-                            <td>✗</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Fair Launch</strong></td>
-                            <td class="hyperflow-advantage">✓ Fair Access</td>
-                            <td>✗</td>
-                            <td>✗ Tier-based</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Gas Optimization</strong></td>
-                            <td class="hyperflow-advantage">✓ HyperEVM Native</td>
-                            <td>Ethereum Limited</td>
-                            <td>Ethereum Limited</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h2 id="roadmap">5. Development Roadmap</h2>
-        
-        <p>HyperFlow Protocol follows an aggressive multi-year growth trajectory, designed to establish market dominance in DeFi infrastructure while maintaining operational excellence and sustainable tokenomics.</p>
-        
-        <h3>5.1 Phase 1: Foundation (Q1 2025)</h3>
-        <p><strong>Core Infrastructure Development & Security Establishment</strong></p>
-        
-        <h4>Key Deliverables:</h4>
-        <ul>
-            <li>Smart contract architecture with institutional-grade security audits</li>
-            <li>HyperEVM native integration with optimized gas efficiency</li>
-            <li>Basic yield optimization algorithms targeting 15-25% APY</li>
-            <li>Emergency safeguards and multi-signature treasury management</li>
-            <li>Community governance framework and initial token distribution</li>
-        </ul>
-        
-        <div class="table-container">
-            <h4>Phase 1 Success Metrics</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>Conservative</th>
-                            <th>Aggressive</th>
-                            <th>Success Indicator</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Total Value Locked</strong></td>
-                            <td>$100K</td>
-                            <td>$500K</td>
-                            <td>Product-market fit validation</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Active Users</strong></td>
-                            <td>100</td>
-                            <td>500</td>
-                            <td>Community engagement >75%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Strategy Vaults</strong></td>
-                            <td>3 basic</td>
-                            <td>5 optimized</td>
-                            <td>Zero critical vulnerabilities</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h3>5.2 Phase 2: Integration (Q2 2025)</h3>
-        <p><strong>HyperCore Integration & Advanced Strategy Implementation</strong></p>
-        
-        <h4>Key Deliverables:</h4>
-        <ul>
-            <li>Direct HyperCore orderbook integration for superior execution</li>
-            <li>Delta-neutral strategies eliminating directional market risk</li>
-            <li>Cross-DEX arbitrage with MEV protection mechanisms</li>
-            <li>Advanced portfolio management with risk-adjusted optimization</li>
-            <li>Institutional-grade reporting and compliance infrastructure</li>
-        </ul>
-        
-        <div class="table-container">
-            <h4>Phase 2 Success Metrics</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>Conservative</th>
-                            <th>Aggressive</th>
-                            <th>Success Indicator</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Total Value Locked</strong></td>
-                            <td>$1M</td>
-                            <td>$5M</td>
-                            <td>10x growth momentum</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Active Users</strong></td>
-                            <td>500</td>
-                            <td>2,000</td>
-                            <td>User retention >80%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Monthly Revenue</strong></td>
-                            <td>$25K</td>
-                            <td>$50K</td>
-                            <td>Sustainable unit economics</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h3>5.3 Phase 3: Expansion (Q3 2025)</h3>
-        <p><strong>Cross-Chain Dominance & Market Leadership</strong></p>
-        
-        <h4>Key Deliverables:</h4>
-        <ul>
-            <li>Multi-chain deployment across 3-5 major blockchain networks</li>
-            <li>Institutional custody partnerships and compliance certifications</li>
-            <li>Advanced AI-driven yield optimization and risk management</li>
-            <li>Strategic protocol partnerships and revenue sharing agreements</li>
-            <li>White-label solutions for institutional clients</li>
-        </ul>
-        
-        <div class="table-container">
-            <h4>Phase 3 Success Metrics</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>Conservative</th>
-                            <th>Aggressive</th>
-                            <th>Success Indicator</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Total Value Locked</strong></td>
-                            <td>$10M</td>
-                            <td>$25M</td>
-                            <td>Top 3 HyperEVM protocol</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Active Users</strong></td>
-                            <td>2,000</td>
-                            <td>10,000</td>
-                            <td>Mainstream adoption signals</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Monthly Revenue</strong></td>
-                            <td>$100K</td>
-                            <td>$250K</td>
-                            <td>Market leadership validated</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h3>5.4 Phase 4: Ecosystem Leadership (Q4 2025 - Q2 2026)</h3>
-        <p><strong>Advanced Derivatives & AI-Powered Automation</strong></p>
-        
-        <h4>Key Deliverables:</h4>
-        <ul>
-            <li>Options and structured products trading infrastructure</li>
-            <li>Machine learning yield prediction and optimization models</li>
-            <li>Automated strategy parameter optimization and rebalancing</li>
-            <li>Research and development grant program for ecosystem growth</li>
-            <li>Geographic expansion with multi-jurisdictional compliance</li>
-        </ul>
-        
-        <div class="table-container">
-            <h4>Phase 4 Success Metrics</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>Conservative</th>
-                            <th>Aggressive</th>
-                            <th>Success Indicator</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Total Value Locked</strong></td>
-                            <td>$50M</td>
-                            <td>$100M</td>
-                            <td>Top DeFi protocol globally</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Active Users</strong></td>
-                            <td>10,000</td>
-                            <td>50,000</td>
-                            <td>Mass market adoption</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Monthly Revenue</strong></td>
-                            <td>$500K</td>
-                            <td>$1M</td>
-                            <td>Industry leadership confirmed</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h3>5.5 Phase 5: Global Dominance (2026-2027)</h3>
-        <p><strong>Traditional Finance Integration & Industry Standard</strong></p>
-        
-        <h4>Strategic Objectives:</h4>
-        <ul>
-            <li><strong>$500M+ TVL</strong>: Establish as premier global DeFi infrastructure</li>
-            <li><strong>100+ Institutional Clients</strong>: Traditional finance adoption bridge</li>
-            <li><strong>Real-World Asset Integration</strong>: Tokenized RWA yield strategies</li>
-            <li><strong>Quantum-Resistant Security</strong>: Future-proof cryptographic systems</li>
-            <li><strong>ZK-Proof Integration</strong>: Privacy-preserving transaction capabilities</li>
-            <li><strong>Regulatory Leadership</strong>: Multi-jurisdictional compliance framework</li>
-        </ul>
-        
-        <div class="table-container">
-            <h4>Long-Term Vision Metrics (2027+)</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>Target</th>
-                            <th>Market Position</th>
-                            <th>Global Impact</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Total Value Locked</strong></td>
-                            <td>$1B+</td>
-                            <td>Top 5 Global DeFi</td>
-                            <td>Industry Standard</td>
-                        </tr>
-                        <tr>
-                            <td><strong>User Base</strong></td>
-                            <td>500K+</td>
-                            <td>Mainstream Adoption</td>
-                            <td>Global Recognition</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Network Coverage</strong></td>
-                            <td>20+ Chains</td>
-                            <td>Universal Infrastructure</td>
-                            <td>Cross-Chain Standard</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Annual Revenue</strong></td>
-                            <td>$50M+</td>
-                            <td>Sustainable Profitability</td>
-                            <td>Economic Powerhouse</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h3>5.6 Technology Evolution Timeline</h3>
-        
-        <div class="table-container">
-            <h4>Innovation Roadmap</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Timeline</th>
-                            <th>Technology Focus</th>
-                            <th>Key Innovation</th>
-                            <th>Competitive Advantage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>2025 Q1-Q2</strong></td>
-                            <td>HyperCore Native</td>
-                            <td>Direct orderbook access</td>
-                            <td>Superior execution speed</td>
-                        </tr>
-                        <tr>
-                            <td><strong>2025 Q3-Q4</strong></td>
-                            <td>Cross-Chain AI</td>
-                            <td>Multi-chain optimization</td>
-                            <td>Ecosystem dominance</td>
-                        </tr>
-                        <tr>
-                            <td><strong>2026</strong></td>
-                            <td>Advanced Derivatives</td>
-                            <td>Structured products</td>
-                            <td>Institutional appeal</td>
-                        </tr>
-                        <tr>
-                            <td><strong>2027+</strong></td>
-                            <td>TradFi Integration</td>
-                            <td>RWA tokenization</td>
-                            <td>Industry standard</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h2>6. Risk Assessment</h2>
-        
-        <h3>6.1 Technical Risks</h3>
-        <ul>
-            <li><strong>Smart Contract Vulnerabilities</strong>: Mitigated through comprehensive audits and formal verification</li>
-            <li><strong>Oracle Dependencies</strong>: Multiple oracle sources and fallback mechanisms</li>
-            <li><strong>Precompile Changes</strong>: Close collaboration with HyperEVM development team</li>
-        </ul>
-        
-        <h3>6.2 Market Risks</h3>
-        <ul>
-            <li><strong>Yield Volatility</strong>: Diversified strategy allocation and risk-adjusted returns</li>
-            <li><strong>Liquidity Constraints</strong>: Progressive vault capacity scaling</li>
-            <li><strong>Competitive Pressure</strong>: Continuous innovation and community focus</li>
-        </ul>
-        
-        <h2>7. Team & Governance</h2>
-        
-        <h3>7.1 Core Team</h3>
-        
-        <h4>Lead Developer</h4>
-        <p><strong>Background:</strong> Former Ethereum core contributor with 8 years of blockchain experience specializing in smart contract architecture, consensus mechanisms, and security protocols.</p>
-        
-        <h4>Smart Contract Architect</h4>
-        <p><strong>Background:</strong> Security expert and former Compound protocol engineer with expertise in formal verification, audit processes, and comprehensive risk assessment.</p>
-        
-        <h4>Product Manager</h4>
-        <p><strong>Background:</strong> Previously at Aave, specialized in yield optimization with deep expertise in product strategy, user experience design, and DeFi market analysis.</p>
-        
-        <h3>7.2 Governance Framework</h3>
-        <p>HyperFlow implements a transparent governance system where all major protocol decisions are made through community voting with democratic participation and timelock protections.</p>
-        
-        <h3>7.3 Advisory Board</h3>
-        
-        <h4>DeFi Research Advisor</h4>
-        <p><strong>Expertise:</strong> PhD in Economics with specialization in DeFi yield strategy research, tokenomics design, and mechanism research with extensive academic publishing record.</p>
-        
-        <h4>Security Advisor</h4>
-        <p><strong>Expertise:</strong> Former blockchain security lead and audit specialist with deep knowledge in smart contract security, formal verification, and comprehensive risk assessment frameworks.</p>
-        
-        <h2>8. Market Analysis</h2>
-        
-        <h3>8.1 Market Opportunity</h3>
-        <p>The HyperEVM ecosystem represents a significant untapped market opportunity with current total value locked growing rapidly across native protocols. HyperFlow is positioned to capture significant market share as the first comprehensive DeFi infrastructure platform.</p>
-        
-        <h3>8.2 Competitive Positioning</h3>
-        <p>HyperFlow differentiates itself through HyperEVM native integration, superior revenue sharing, and advanced technical capabilities that provide sustainable competitive advantages in the growing DeFi infrastructure market.</p>
-        
-        <h2>8. Market Analysis & Positioning</h2>
-        
-        <h3>8.1 Market Opportunity</h3>
-        <p>The HyperEVM ecosystem represents a significant untapped market opportunity with current total value locked (TVL) growing rapidly across native protocols. Key market indicators include:</p>
-        
-        <ul>
-            <li><strong>Total Addressable Market</strong>: $500M+ current TVL across HyperEVM DeFi protocols</li>
-            <li><strong>Growth Rate</strong>: 25%+ monthly TVL increase in major HyperEVM protocols</li>
-            <li><strong>Infrastructure Gap</strong>: No comprehensive yield optimization platform currently exists</li>
-            <li><strong>User Base</strong>: 50,000+ active addresses with growing institutional interest</li>
-        </ul>
-        
-        <h3>8.2 Competitive Positioning</h3>
-        <p>HyperFlow differentiates itself through HyperEVM native integration, superior revenue sharing (70% vs competitors' 30-50%), and advanced technical capabilities that provide sustainable competitive advantages in the growing DeFi infrastructure market.</p>
-        
-        <h3>8.3 Revenue Projections</h3>
-        
-        <div class="table-container">
-            <h4>12-Month Financial Projections</h4>
-            <div class="table-responsive">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Quarter</th>
-                            <th>Target TVL</th>
-                            <th>Protocol Revenue</th>
-                            <th>Token Holder Share</th>
-                            <th>Monthly Growth</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Q1 2025</strong></td>
-                            <td>$10M</td>
-                            <td>$50K</td>
-                            <td>$35K</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Q2 2025</strong></td>
-                            <td>$50M</td>
-                            <td>$200K</td>
-                            <td>$140K</td>
-                            <td>70%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Q3 2025</strong></td>
-                            <td>$150M</td>
-                            <td>$500K</td>
-                            <td>$350K</td>
-                            <td>40%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Q4 2025</strong></td>
-                            <td>$300M</td>
-                            <td>$1M</td>
-                            <td>$700K</td>
-                            <td>25%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h2>9. Team & Advisors</h2>
-        
-        <h3>9.1 Core Team</h3>
-        
-        <h4>Lead Developer</h4>
-        <p>Former Ethereum core contributor with 8 years blockchain experience. Expertise in smart contract architecture, consensus mechanisms, and security protocols.</p>
-        
-        <h4>Smart Contract Architect</h4>
-        <p>Security expert and former Compound protocol engineer. Expertise in formal verification, audit processes, and risk assessment.</p>
-        
-        <h4>Product Manager</h4>
-        <p>Previously at Aave, specialized in yield optimization. Expertise in product strategy, user experience, and market analysis.</p>
-        
-        <h3>9.2 Advisory Board</h3>
-        
-        <h4>DeFi Research Advisor</h4>
-        <p>PhD Economics, DeFi yield strategy research. Expertise in tokenomics design, mechanism research, and academic publishing.</p>
-        
-        <h4>Security Advisor</h4>
-        <p>Former blockchain security lead and audit specialist. Expertise in smart contract security, formal verification, and risk assessment.</p>
-        
-        <h3>9.3 Legal & Compliance</h3>
-        <p>Professional legal services specializing in blockchain and cryptocurrency law, providing legal structure, regulatory compliance, and token classification across multiple international regulatory frameworks.</p>
-        
-        <h2>10. Conclusion</h2>
-        <p>HyperFlow Protocol represents a significant advancement in DeFi infrastructure for the HyperEVM ecosystem. By combining technical innovation with fair tokenomics and democratic governance, the protocol addresses critical market gaps while ensuring sustainable value creation for all participants.</p>
-        
-        <p>The combination of native HyperCore integration, advanced yield strategies, and transparent revenue sharing positions HyperFlow as the foundational infrastructure layer for HyperEVM DeFi. With an experienced team, comprehensive security framework, and clear development roadmap, HyperFlow is positioned to capture significant market share while delivering substantial returns to early supporters.</p>
-        
-        <p>The fair presale structure and democratic governance model reflect our commitment to building a truly community-owned protocol that prioritizes long-term sustainability over short-term speculation. As the HyperEVM ecosystem continues to grow, HyperFlow will serve as the critical infrastructure enabling the next generation of decentralized finance.</p>
-        
-        <hr>
-        
-        <h2>Disclaimer</h2>
-        <p>This whitepaper is for informational purposes only and does not constitute investment advice, financial advice, trading advice, or any other sort of advice. The information contained herein is subject to change and may become outdated. Potential participants should conduct their own research and consult with qualified professionals before making any investment decisions.</p>
-        
-        <p>Cryptocurrency investments carry significant risk, including the potential for total loss of capital. Past performance does not guarantee future results. The HyperFlow Protocol is experimental technology and may contain bugs or vulnerabilities despite extensive testing and auditing.</p>
-        
-        <div style="text-align: center; margin: 50px 0;">
-            <a href="whitepaper.html" style="display: inline-block; padding: 18px 36px; background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1.1rem; box-shadow: 0 6px 20px rgba(20,184,166,0.3); transition: all 0.3s ease;">
-                📖 View Complete Technical Whitepaper
+        <div class="logo">HF</div>
+        <h1>HyperFlow Protocol</h1>
+        <p class="subtitle">Documentation & Whitepaper</p>
+        
+        <div class="docs-grid">
+            <a href="HYPERFLOW_WHITEPAPER.md" class="doc-card" target="_blank">
+                <h3>📄 Whitepaper</h3>
+                <p>Complete technical whitepaper with protocol architecture and tokenomics</p>
+            </a>
+            
+            <a href="PROJECT_SUMMARY.md" class="doc-card" target="_blank">
+                <h3>📊 Project Summary</h3>
+                <p>Executive overview of HyperFlow Protocol and key features</p>
+            </a>
+            
+            <a href="TOKENOMICS.md" class="doc-card" target="_blank">
+                <h3>💰 Tokenomics</h3>
+                <p>Token distribution, revenue model, and economic mechanisms</p>
+            </a>
+            
+            <a href="TECHNICAL_ARCHITECTURE.md" class="doc-card" target="_blank">
+                <h3>⚙️ Technical Architecture</h3>
+                <p>Smart contract design, security features, and implementation details</p>
+            </a>
+            
+            <a href="PRESALE_DETAILS.md" class="doc-card" target="_blank">
+                <h3>🚀 Presale Details</h3>
+                <p>Presale structure, timeline, and participation guidelines</p>
+            </a>
+            
+            <a href="UTILITY_MECHANISMS.md" class="doc-card" target="_blank">
+                <h3>🔧 Utility Mechanisms</h3>
+                <p>Token utility, governance features, and ecosystem benefits</p>
+            </a>
+            
+            <a href="ROADMAP.md" class="doc-card" target="_blank">
+                <h3>🗺️ Roadmap</h3>
+                <p>Development timeline, milestones, and future plans</p>
             </a>
         </div>
-
+        
         <div class="footer">
-            <p><strong>HyperFlow Protocol</strong></p>
-            <p>Advanced DeFi Infrastructure for HyperEVM</p>
-            <p>Version 1.0 | January 2025</p>
-            <p>Contact: team@hyperflow.protocol</p>
+            <p>HyperFlow Protocol - Advanced DeFi Infrastructure for HyperEVM</p>
         </div>
     </div>
 </body>
