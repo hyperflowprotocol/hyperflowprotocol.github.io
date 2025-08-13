@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HyperFlow Protocol - Advanced DeFi Infrastructure</title>
+    <!-- Restored: 1755088898226 -->
     <style>
         * {
             margin: 0;
@@ -206,6 +207,30 @@
             color: #e2e8f0;
         }
         
+        .legal-notice {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 40px 0;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            text-align: center;
+        }
+        
+        .disclaimer-section {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .disclaimer-section h3 {
+            color: #f87171;
+            margin-bottom: 15px;
+        }
+        
         a {
             color: #2dd4bf;
             text-decoration: none;
@@ -242,7 +267,7 @@
     <div class="container">
         <div class="header">
             <h1>HyperFlow Protocol</h1>
-            <div class="subtitle">Next-Generation DeFi Infrastructure for HyperEVM</div>
+            <div class="subtitle">Advanced DeFi Infrastructure for HyperEVM</div>
         </div>
         
         <div class="stats-overview">
@@ -262,6 +287,11 @@
                 <span class="stat-value">HyperEVM</span>
                 <span class="stat-label">Native Chain</span>
             </div>
+        </div>
+        
+        <div class="disclaimer-section">
+            <h3>⚠️ Important Investment Disclaimer</h3>
+            <p>This document is for informational purposes only and does not constitute investment advice. Cryptocurrency investments carry significant risks including potential total loss of capital. Please conduct thorough research and consult with financial advisors before making any investment decisions. Past performance does not guarantee future results.</p>
         </div>
         
         <div class="quick-links">
@@ -298,32 +328,38 @@
             
             <p>The protocol leverages native HyperCore integration via precompiles for direct orderbook access, enabling delta-neutral yield strategies and MEV-protected trade execution. With a fair tokenomics model allocating 50% of protocol revenue to token holders, HyperFlow represents a paradigm shift toward community-owned DeFi infrastructure.</p>
             
-            <h2>1. Market Opportunity</h2>
+            <h2>1. Introduction</h2>
             
-            <p>The HyperEVM ecosystem presents a significant opportunity for advanced DeFi infrastructure. Current market gaps include:</p>
+            <h3>1.1 Problem Statement</h3>
+            
+            <p>The HyperEVM ecosystem, while technically advanced, lacks sophisticated DeFi infrastructure comparable to established networks. Current limitations include:</p>
             
             <ul>
                 <li><strong>Fragmented Liquidity:</strong> Capital scattered across multiple protocols without efficient aggregation</li>
                 <li><strong>Limited Yield Strategies:</strong> Basic staking and LP farming dominate, lacking advanced optimization</li>
                 <li><strong>Inefficient Cross-Protocol Interactions:</strong> No unified interface for complex DeFi operations</li>
                 <li><strong>MEV Exploitation:</strong> Users suffer from front-running and sandwich attacks</li>
+                <li><strong>Risk Management Gaps:</strong> Limited tools for portfolio protection and liquidation prevention</li>
             </ul>
             
-            <h3>1.1 HyperFlow Solution</h3>
+            <h3>1.2 Solution Overview</h3>
             
-            <p>HyperFlow Protocol addresses these opportunities through:</p>
+            <p>HyperFlow Protocol addresses these challenges through:</p>
             
             <ul>
                 <li><strong>Unified Yield Optimization:</strong> Automated vault system maximizing returns across all HyperEVM protocols</li>
                 <li><strong>Native HyperCore Integration:</strong> Direct access to perp orderbook for advanced strategies</li>
                 <li><strong>Cross-Protocol Aggregation:</strong> Seamless interaction with HyperSwap, HyperBloom, and other platforms</li>
                 <li><strong>MEV Protection:</strong> Advanced routing and slippage optimization</li>
+                <li><strong>Institutional-Grade Risk Management:</strong> Comprehensive portfolio monitoring and protection</li>
             </ul>
             
             <h2>2. Technical Architecture</h2>
             
-            <h3>2.1 Smart Vault System</h3>
-            <p>Automated strategies for yield optimization with intelligent rebalancing:</p>
+            <h3>2.1 Core Components</h3>
+            
+            <h4>2.1.1 Smart Vault System</h4>
+            <p>The HyperFlow vault system employs automated strategies for yield optimization:</p>
             
             <div class="code-block">
 contract HyperFlowVault {
@@ -343,7 +379,7 @@ contract HyperFlowVault {
     }
 }</div>
             
-            <h3>2.2 HyperCore Integration</h3>
+            <h4>2.1.2 HyperCore Integration</h4>
             <p>Native precompile access enables direct interaction with HyperEVM's perpetual orderbook:</p>
             
             <div class="code-block">
@@ -361,7 +397,7 @@ interface IHyperCorePrecompile {
     ) external;
 }</div>
             
-            <h3>2.3 Cross-Protocol Router</h3>
+            <h4>2.1.3 Cross-Protocol Router</h4>
             <p>Intelligent routing system aggregating liquidity across multiple DeFi protocols:</p>
             
             <div class="code-block">
@@ -384,7 +420,7 @@ contract CrossProtocolRouter {
     }
 }</div>
             
-            <h2>3. Tokenomics & Revenue</h2>
+            <h2>3. Token Economics</h2>
             
             <h3>3.1 FLOW Token Distribution (1B Total Supply)</h3>
             
@@ -402,15 +438,19 @@ contract CrossProtocolRouter {
                     <span class="stat-label">Community (20%)</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value">150M</span>
-                    <span class="stat-label">Team & Partners (15%)</span>
+                    <span class="stat-value">100M</span>
+                    <span class="stat-label">Team (10%)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">50M</span>
+                    <span class="stat-label">Partnerships (5%)</span>
                 </div>
             </div>
             
             <h3>3.2 Revenue Model</h3>
             
             <div class="highlight-section">
-                <h4>Protocol Revenue Sources</h4>
+                <h4>Revenue Streams</h4>
                 <ul>
                     <li><strong>Vault Performance Fees:</strong> 10% of generated yield</li>
                     <li><strong>Bridge Fees:</strong> 0.1% on cross-chain transfers</li>
@@ -426,7 +466,9 @@ contract CrossProtocolRouter {
                 </ul>
             </div>
             
-            <h2>4. Fair Launch Presale</h2>
+            <h2>4. Presale Structure</h2>
+            
+            <h3>4.1 Fair Launch Approach</h3>
             
             <p>HyperFlow adopts a democratic presale approach ensuring equal access for all participants with transparent pricing and no tier discrimination.</p>
             
@@ -449,7 +491,7 @@ contract CrossProtocolRouter {
                 </div>
             </div>
             
-            <h3>4.1 Investment Details</h3>
+            <h3>4.2 Investment Details</h3>
             <ul>
                 <li><strong>Total Allocation:</strong> 50,000,000 FLOW (5% of 1B total supply)</li>
                 <li><strong>Exchange Rate:</strong> 25,000 FLOW per 1 HYPE</li>
@@ -460,14 +502,14 @@ contract CrossProtocolRouter {
             
             <h2>5. Development Roadmap</h2>
             
-            <h3>5.1 Phase 1: Foundation</h3>
-            <p>Core infrastructure, security audits, presale launch, basic vault strategies. Target: $500K+ TVL with growing user base.</p>
+            <h3>5.1 Phase 1: Foundation (Q1-Q2 2025)</h3>
+            <p>Core infrastructure development, security audits, presale launch, and basic vault strategies. Target: $500K+ TVL with growing user base.</p>
             
-            <h3>5.2 Phase 2: Integration</h3>
-            <p>HyperCore integration, delta-neutral strategies, cross-protocol router, mobile interface development. Target: $10M+ TVL.</p>
+            <h3>5.2 Phase 2: Integration (Q3-Q4 2025)</h3>
+            <p>HyperCore integration, delta-neutral strategies, cross-protocol router, and mobile interface development. Target: $10M+ TVL.</p>
             
-            <h3>5.3 Phase 3: Expansion</h3>
-            <p>Cross-chain bridge, institutional features, advanced risk management, partnership integrations. Target: $100M+ TVL.</p>
+            <h3>5.3 Phase 3: Expansion (2026+)</h3>
+            <p>Cross-chain bridge, institutional features, advanced risk management, and partnership integrations. Target: $100M+ TVL.</p>
             
             <h2>6. Security & Governance</h2>
             
@@ -498,6 +540,88 @@ contract CrossProtocolRouter {
                     <span class="stat-label">Timelock</span>
                 </div>
             </div>
+            
+            <h2>7. Risk Management Framework</h2>
+            
+            <h3>7.1 Protocol Risks</h3>
+            <ul>
+                <li><strong>Smart Contract Risk:</strong> Comprehensive audits and bug bounty programs</li>
+                <li><strong>Liquidity Risk:</strong> Diversified protocol integrations and emergency pause mechanisms</li>
+                <li><strong>Market Risk:</strong> Delta-neutral strategies and automated rebalancing</li>
+                <li><strong>Regulatory Risk:</strong> Compliance framework and legal structure</li>
+            </ul>
+            
+            <h3>7.2 User Protection</h3>
+            <ul>
+                <li><strong>Insurance Fund:</strong> Protocol treasury allocation for user protection</li>
+                <li><strong>Liquidation Prevention:</strong> Advanced monitoring and early warning systems</li>
+                <li><strong>Emergency Procedures:</strong> Rapid response protocols for critical situations</li>
+            </ul>
+            
+            <h2>8. Economic Model</h2>
+            
+            <h3>8.1 Value Accrual Mechanisms</h3>
+            <ul>
+                <li><strong>Revenue Sharing:</strong> Direct distribution of protocol fees to token holders</li>
+                <li><strong>Buyback Program:</strong> Excess treasury funds used for token buybacks</li>
+                <li><strong>Utility Demand:</strong> Token required for enhanced yields and fee discounts</li>
+                <li><strong>Governance Premium:</strong> Voting rights valuable for protocol direction</li>
+            </ul>
+            
+            <h3>8.2 Sustainability Metrics</h3>
+            <div class="stats-overview">
+                <div class="stat-item">
+                    <span class="stat-value">15-25%</span>
+                    <span class="stat-label">Target APY</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">$100M+</span>
+                    <span class="stat-label">TVL Target</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">50%</span>
+                    <span class="stat-label">Revenue Share</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">10,000+</span>
+                    <span class="stat-label">User Target</span>
+                </div>
+            </div>
+            
+            <h2>9. Competitive Analysis</h2>
+            
+            <h3>9.1 Market Position</h3>
+            <p>HyperFlow differentiates itself from existing DeFi protocols through native HyperEVM integration and advanced yield optimization strategies.</p>
+            
+            <h3>9.2 Competitive Advantages</h3>
+            <ul>
+                <li><strong>First-Mover Advantage:</strong> First comprehensive DeFi infrastructure on HyperEVM</li>
+                <li><strong>Native Integration:</strong> Deep HyperCore integration unavailable to competitors</li>
+                <li><strong>Community Ownership:</strong> 50% revenue sharing creates aligned incentives</li>
+                <li><strong>Advanced Strategies:</strong> Delta-neutral and arbitrage capabilities</li>
+            </ul>
+            
+            <h2>10. Future Development</h2>
+            
+            <h3>10.1 Technology Roadmap</h3>
+            <ul>
+                <li><strong>AI-Powered Optimization:</strong> Machine learning for strategy enhancement</li>
+                <li><strong>Cross-Chain Expansion:</strong> Multi-network protocol deployment</li>
+                <li><strong>Institutional Features:</strong> Professional trading tools and analytics</li>
+                <li><strong>Mobile Platform:</strong> Native mobile application development</li>
+            </ul>
+            
+            <h3>10.2 Partnership Strategy</h3>
+            <ul>
+                <li><strong>Protocol Integrations:</strong> Deep partnerships with HyperEVM ecosystem</li>
+                <li><strong>Institutional Adoption:</strong> Professional trader and fund onboarding</li>
+                <li><strong>Academic Collaboration:</strong> Research partnerships for protocol optimization</li>
+                <li><strong>Cross-Chain Bridges:</strong> Strategic alliances for multi-network support</li>
+            </ul>
+        </div>
+        
+        <div class="legal-notice">
+            <strong>Legal Disclaimer:</strong> This whitepaper is for informational purposes only and does not constitute investment advice, financial advice, trading advice, or any other advice. The content is provided "as is" without warranties of any kind. Cryptocurrency investments carry significant risk including potential total loss of capital. Please conduct your own research and consult with qualified professionals before making investment decisions.
         </div>
         
         <div style="text-align: center; margin: 40px 0; padding: 30px; background: rgba(30, 41, 59, 0.5); border-radius: 12px; border: 1px solid rgba(45, 212, 191, 0.1);">
