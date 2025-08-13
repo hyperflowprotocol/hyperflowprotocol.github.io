@@ -121,62 +121,6 @@
             text-decoration: underline;
         }
         
-        /* Token Distribution Styling */
-        .token-distribution {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(77, 208, 225, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .distribution-item {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px 0;
-        }
-        
-        .distribution-item h4 {
-            color: #4dd0e1;
-            margin: 0 0 8px 0;
-            font-size: 1.1rem;
-        }
-        
-        .distribution-item p {
-            margin: 0;
-            color: #cbd5e0;
-        }
-        
-        /* Comparison Table Styling */
-        .comparison-table {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(129, 199, 132, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .comparison-item {
-            background: rgba(129, 199, 132, 0.05);
-            border: 1px solid rgba(129, 199, 132, 0.2);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px 0;
-        }
-        
-        .comparison-item h4 {
-            color: #81c784;
-            margin: 0 0 8px 0;
-            font-size: 1.1rem;
-        }
-        
-        .comparison-item p {
-            margin: 0;
-            color: #cbd5e0;
-        }
-        
         /* Special styling for repository links in Related Documentation */
         li a[href*="github.io"] {
             display: inline-block;
@@ -206,14 +150,6 @@
                 font-size: 1.5rem;
             }
             
-            h3 {
-                font-size: 1.3rem;
-            }
-            
-            h4 {
-                font-size: 1.1rem;
-            }
-            
             .container {
                 padding: 20px 15px;
             }
@@ -222,18 +158,6 @@
                 display: block;
                 text-align: center;
                 margin: 10px 0;
-            }
-            
-            .distribution-item,
-            .comparison-item {
-                padding: 12px;
-                margin: 8px 0;
-            }
-            
-            .token-distribution,
-            .comparison-table {
-                padding: 15px;
-                margin: 15px 0;
             }
         }
     </style>
@@ -362,33 +286,36 @@
 <strong>Total Supply</strong>: 1,000,000,000 FLOW (fixed, no inflation)
 <strong>Standard</strong>: ERC-20 on HyperEVM
 <h3>3.2 Distribution Model</h3>
-<div class="token-distribution">
-<div class="distribution-item">
-<h4>Public Sale</h4>
-<p><strong>40%</strong> | 400M FLOW | Immediate unlock</p>
-</div>
-<div class="distribution-item">
-<h4>Development</h4>
-<p><strong>25%</strong> | 250M FLOW | 4-year linear vesting</p>
-</div>
-<div class="distribution-item">
-<h4>Community Rewards</h4>
-<p><strong>20%</strong> | 200M FLOW | Yield farming distribution</p>
-</div>
-<div class="distribution-item">
-<h4>Team</h4>
-<p><strong>10%</strong> | 100M FLOW | 2-year cliff, 4-year vesting</p>
-</div>
-<div class="distribution-item">
-<h4>Strategic Partnerships</h4>
-<p><strong>5%</strong> | 50M FLOW | Performance-based unlock</p>
-</div>
-</div>------------|------------|---------|------------------|
-<p>| Public Sale | 40% | 400M FLOW | Immediate unlock |</p>
-<p>| Development | 25% | 250M FLOW | 4-year linear vesting |</p>
-<p>| Community Rewards | 20% | 200M FLOW | Yield farming distribution |</p>
-<p>| Team | 10% | 100M FLOW | 2-year cliff, 4-year vesting |</p>
-<p>| Strategic Partnerships | 5% | 50M FLOW | Performance-based unlock |</p>
+<h4>Public Sale - 40%</h4>
+<ul>
+<li><strong>Amount</strong>: 400M FLOW tokens</li>
+<li><strong>Vesting</strong>: Immediate unlock</li>
+<li><strong>Purpose</strong>: Community distribution and initial liquidity</li>
+</ul>
+<h4>Development Fund - 25%  </h4>
+<ul>
+<li><strong>Amount</strong>: 250M FLOW tokens</li>
+<li><strong>Vesting</strong>: 4-year linear vesting</li>
+<li><strong>Purpose</strong>: Protocol development and maintenance</li>
+</ul>
+<h4>Community Rewards - 20%</h4>
+<ul>
+<li><strong>Amount</strong>: 200M FLOW tokens  </li>
+<li><strong>Vesting</strong>: Yield farming distribution</li>
+<li><strong>Purpose</strong>: Incentivizing platform participation</li>
+</ul>
+<h4>Team Allocation - 10%</h4>
+<ul>
+<li><strong>Amount</strong>: 100M FLOW tokens</li>
+<li><strong>Vesting</strong>: 2-year cliff, 4-year vesting</li>
+<li><strong>Purpose</strong>: Core team compensation and retention</li>
+</ul>
+<h4>Strategic Partnerships - 5%</h4>
+<ul>
+<li><strong>Amount</strong>: 50M FLOW tokens</li>
+<li><strong>Vesting</strong>: Performance-based unlock</li>
+<li><strong>Purpose</strong>: Key integrations and ecosystem growth</li>
+</ul>
 <h3>3.3 Utility Mechanisms</h3>
 <h4>3.3.1 Governance Rights</h4>
 <ul>
@@ -587,33 +514,36 @@
 <li><strong>Democratic Governance</strong>: Fair tokenomics without tier discrimination</li>
 </ul>
 <h3>8.2 Comparison with Competitors</h3>
-<div class="comparison-table">
-<div class="comparison-item">
-<h4>Revenue Share</h4>
-<p><strong>HyperFlow:</strong> 70% | <strong>Others:</strong> 30% - 50%</p>
-</div>
-<div class="comparison-item">
+<h4>Revenue Share Comparison</h4>
+<ul>
+<li><strong>HyperFlow</strong>: 70% to token holders</li>
+<li><strong>Yearn Finance</strong>: 30% to token holders  </li>
+<li><strong>Convex Finance</strong>: 50% to token holders</li>
+</ul>
 <h4>Native Integration</h4>
-<p><strong>HyperFlow:</strong> ✓ HyperCore | <strong>Others:</strong> ✗ Limited</p>
-</div>
-<div class="comparison-item">
-<h4>Cross-Protocol</h4>
-<p><strong>HyperFlow:</strong> ✓ Advanced | <strong>Others:</strong> Limited</p>
-</div>
-<div class="comparison-item">
-<h4>Delta-Neutral</h4>
-<p><strong>HyperFlow:</strong> ✓ Native | <strong>Others:</strong> ✗ Basic</p>
-</div>
-<div class="comparison-item">
-<h4>Fair Launch</h4>
-<p><strong>HyperFlow:</strong> ✓ Democratic | <strong>Others:</strong> ✗ Tier-based</p>
-</div>
-</div>---------|-----------|---------------|----------------|
-<p>| Revenue Share | 70% | 30% | 50% |</p>
-<p>| Native Integration | ✓ HyperCore | ✗ | ✗ |</p>
-<p>| Cross-Protocol | ✓ | Limited | Limited |</p>
-<p>| Delta-Neutral | ✓ | ✗ | ✗ |</p>
-<p>| Fair Launch | ✓ | ✗ | ✗ |</p>
+<ul>
+<li><strong>HyperFlow</strong>: ✓ Direct HyperCore access</li>
+<li><strong>Yearn Finance</strong>: ✗ No native integration</li>
+<li><strong>Convex Finance</strong>: ✗ Limited integration</li>
+</ul>
+<h4>Cross-Protocol Capabilities  </h4>
+<ul>
+<li><strong>HyperFlow</strong>: ✓ Advanced aggregation</li>
+<li><strong>Yearn Finance</strong>: Limited cross-protocol features</li>
+<li><strong>Convex Finance</strong>: Limited cross-protocol features</li>
+</ul>
+<h4>Delta-Neutral Strategies</h4>
+<ul>
+<li><strong>HyperFlow</strong>: ✓ Native delta-neutral vaults</li>
+<li><strong>Yearn Finance</strong>: ✗ Basic strategies only</li>
+<li><strong>Convex Finance</strong>: ✗ Limited strategy types</li>
+</ul>
+<h4>Fair Launch Model</h4>
+<ul>
+<li><strong>HyperFlow</strong>: ✓ Democratic, no tiers</li>
+<li><strong>Yearn Finance</strong>: ✗ Traditional launch</li>
+<li><strong>Convex Finance</strong>: ✗ Tier-based system</li>
+</ul>
 <h3>8.3 Competitive Advantages</h3>
 <ul>
 <li><strong>First-Mover Advantage</strong>: Early entry into HyperEVM DeFi infrastructure</li>
