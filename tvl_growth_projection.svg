@@ -1,0 +1,158 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="conservativeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aggressiveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fillGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    HyperFlow Protocol TVL Growth Projections
+  </text>
+  
+  <!-- Chart area -->
+  <rect x="80" y="80" width="640" height="400" fill="white" stroke="#e9ecef" stroke-width="1"/>
+  
+  <!-- Y-axis labels (TVL in millions) -->
+  <text x="70" y="90" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$50M</text>
+  <text x="70" y="130" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$40M</text>
+  <text x="70" y="170" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$30M</text>
+  <text x="70" y="210" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$20M</text>
+  <text x="70" y="250" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$10M</text>
+  <text x="70" y="290" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$5M</text>
+  <text x="70" y="330" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$1M</text>
+  <text x="70" y="370" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$500K</text>
+  <text x="70" y="410" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$100K</text>
+  <text x="70" y="450" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#666">$0</text>
+  
+  <!-- X-axis labels (Months) -->
+  <text x="120" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">Q1</text>
+  <text x="200" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">Q2</text>
+  <text x="280" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">Q3</text>
+  <text x="360" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">Q4</text>
+  <text x="440" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">Q5</text>
+  <text x="520" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">Q6</text>
+  <text x="600" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">Q7</text>
+  <text x="680" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">Q8</text>
+  
+  <!-- Grid lines -->
+  <line x1="80" y1="130" x2="720" y2="130" stroke="#f0f0f0" stroke-width="1"/>
+  <line x1="80" y1="170" x2="720" y2="170" stroke="#f0f0f0" stroke-width="1"/>
+  <line x1="80" y1="210" x2="720" y2="210" stroke="#f0f0f0" stroke-width="1"/>
+  <line x1="80" y1="250" x2="720" y2="250" stroke="#f0f0f0" stroke-width="1"/>
+  <line x1="80" y1="290" x2="720" y2="290" stroke="#f0f0f0" stroke-width="1"/>
+  <line x1="80" y1="330" x2="720" y2="330" stroke="#f0f0f0" stroke-width="1"/>
+  <line x1="80" y1="370" x2="720" y2="370" stroke="#f0f0f0" stroke-width="1"/>
+  <line x1="80" y1="410" x2="720" y2="410" stroke="#f0f0f0" stroke-width="1"/>
+  
+  <!-- Conservative scenario path -->
+  <path d="M 120 410 L 200 330 L 280 290 L 360 250 L 440 210 L 520 170 L 600 150 L 680 130" 
+        stroke="url(#conservativeGradient)" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+  
+  <!-- Aggressive scenario path -->
+  <path d="M 120 410 L 200 370 L 280 250 L 360 170 L 440 130 L 520 110 L 600 95 L 680 85" 
+        stroke="url(#aggressiveGradient)" stroke-width="4" fill="none"/>
+  
+  <!-- Area fill for aggressive scenario -->
+  <path d="M 120 450 L 120 410 L 200 370 L 280 250 L 360 170 L 440 130 L 520 110 L 600 95 L 680 85 L 680 450 Z" 
+        fill="url(#fillGradient)" opacity="0.3"/>
+  
+  <!-- Data points for conservative scenario -->
+  <circle cx="120" cy="410" r="4" fill="url(#conservativeGradient)"/>
+  <circle cx="200" cy="330" r="4" fill="url(#conservativeGradient)"/>
+  <circle cx="280" cy="290" r="4" fill="url(#conservativeGradient)"/>
+  <circle cx="360" cy="250" r="4" fill="url(#conservativeGradient)"/>
+  <circle cx="440" cy="210" r="4" fill="url(#conservativeGradient)"/>
+  <circle cx="520" cy="170" r="4" fill="url(#conservativeGradient)"/>
+  <circle cx="600" cy="150" r="4" fill="url(#conservativeGradient)"/>
+  <circle cx="680" cy="130" r="4" fill="url(#conservativeGradient)"/>
+  
+  <!-- Data points for aggressive scenario -->
+  <circle cx="120" cy="410" r="5" fill="url(#aggressiveGradient)"/>
+  <circle cx="200" cy="370" r="5" fill="url(#aggressiveGradient)"/>
+  <circle cx="280" cy="250" r="5" fill="url(#aggressiveGradient)"/>
+  <circle cx="360" cy="170" r="5" fill="url(#aggressiveGradient)"/>
+  <circle cx="440" cy="130" r="5" fill="url(#aggressiveGradient)"/>
+  <circle cx="520" cy="110" r="5" fill="url(#aggressiveGradient)"/>
+  <circle cx="600" cy="95" r="5" fill="url(#aggressiveGradient)"/>
+  <circle cx="680" cy="85" r="5" fill="url(#aggressiveGradient)"/>
+  
+  <!-- Value labels for aggressive scenario -->
+  <text x="120" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4facfe">$100K</text>
+  <text x="200" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4facfe">$500K</text>
+  <text x="280" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4facfe">$10M</text>
+  <text x="360" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4facfe">$30M</text>
+  <text x="440" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4facfe">$40M</text>
+  <text x="520" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4facfe">$45M</text>
+  <text x="600" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4facfe">$48M</text>
+  <text x="680" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4facfe">$50M</text>
+  
+  <!-- Value labels for conservative scenario -->
+  <text x="200" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#667eea">$1M</text>
+  <text x="280" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#667eea">$5M</text>
+  <text x="360" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#667eea">$10M</text>
+  <text x="440" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#667eea">$20M</text>
+  <text x="520" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#667eea">$30M</text>
+  <text x="600" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#667eea">$35M</text>
+  <text x="680" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#667eea">$40M</text>
+  
+  <!-- Axis labels -->
+  <text x="400" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">
+    Timeline (Quarters)
+  </text>
+  
+  <text x="25" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50" transform="rotate(-90, 25, 280)">
+    Total Value Locked (TVL)
+  </text>
+  
+  <!-- Legend -->
+  <rect x="500" y="520" width="250" height="70" fill="white" stroke="#e9ecef" stroke-width="1" rx="5"/>
+  
+  <line x1="520" y1="540" x2="550" y2="540" stroke="url(#aggressiveGradient)" stroke-width="4"/>
+  <text x="560" y="545" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">
+    Aggressive Growth (25% monthly)
+  </text>
+  
+  <line x1="520" y1="560" x2="550" y2="560" stroke="url(#conservativeGradient)" stroke-width="3" stroke-dasharray="5,5"/>
+  <text x="560" y="565" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">
+    Conservative Growth (15% monthly)
+  </text>
+  
+  <!-- Key metrics box -->
+  <rect x="50" y="520" width="400" height="70" fill="white" stroke="#e9ecef" stroke-width="1" rx="5"/>
+  
+  <text x="60" y="540" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">
+    Growth Drivers:
+  </text>
+  <text x="60" y="555" font-family="Arial, sans-serif" font-size="11" fill="#666">
+    • Native HyperEVM integration advantage
+  </text>
+  <text x="60" y="570" font-family="Arial, sans-serif" font-size="11" fill="#666">
+    • 70% revenue sharing attracts capital
+  </text>
+  <text x="60" y="585" font-family="Arial, sans-serif" font-size="11" fill="#666">
+    • Cross-protocol yield optimization
+  </text>
+  
+  <text x="250" y="555" font-family="Arial, sans-serif" font-size="11" fill="#666">
+    • First-mover advantage in advanced DeFi
+  </text>
+  <text x="250" y="570" font-family="Arial, sans-serif" font-size="11" fill="#666">
+    • Institutional-grade risk management
+  </text>
+  <text x="250" y="585" font-family="Arial, sans-serif" font-size="11" fill="#666">
+    • Fair tokenomics driving adoption
+  </text>
+</svg>
