@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1500" height="500" viewBox="0 0 1500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1c;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#1a2332;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#2d3748;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0f1c;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#20B2AA;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00CED1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#40E0D0;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#98FB98;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#40E0D0;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#20B2AA;stop-opacity:0.3" />
+      <stop offset="70%" style="stop-color:#20B2AA;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#20B2AA;stop-opacity:0" />
+    </radialGradient>
+    
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#20B2AA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00CED1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1500" height="500" fill="url(#bgGradient)" />
+  
+  <!-- Flow Pattern Background -->
+  <g opacity="0.4">
+    <!-- Large flow ellipses -->
+    <ellipse cx="200" cy="150" rx="150" ry="75" fill="url(#glowGradient)" transform="rotate(-20 200 150)" />
+    <ellipse cx="600" cy="300" rx="200" ry="100" fill="url(#glowGradient)" transform="rotate(15 600 300)" />
+    <ellipse cx="1000" cy="200" rx="180" ry="90" fill="url(#glowGradient)" transform="rotate(-10 1000 200)" />
+    <ellipse cx="1300" cy="350" rx="120" ry="60" fill="url(#glowGradient)" transform="rotate(25 1300 350)" />
+    
+    <!-- Medium flow ellipses -->
+    <ellipse cx="400" cy="100" rx="80" ry="40" fill="url(#glowGradient)" transform="rotate(30 400 100)" />
+    <ellipse cx="800" cy="120" rx="100" ry="50" fill="url(#glowGradient)" transform="rotate(-45 800 120)" />
+    <ellipse cx="1200" cy="150" rx="90" ry="45" fill="url(#glowGradient)" transform="rotate(10 1200 150)" />
+    
+    <!-- Small flow ellipses -->
+    <ellipse cx="100" cy="350" rx="60" ry="30" fill="url(#glowGradient)" transform="rotate(-30 100 350)" />
+    <ellipse cx="500" cy="400" rx="70" ry="35" fill="url(#glowGradient)" transform="rotate(20 500 400)" />
+    <ellipse cx="900" cy="380" rx="50" ry="25" fill="url(#glowGradient)" transform="rotate(-15 900 380)" />
+  </g>
+  
+  <!-- Logo Section -->
+  <g transform="translate(120, 250)">
+    <!-- Logo Background Circle -->
+    <circle cx="0" cy="0" r="80" fill="url(#flowGradient)" opacity="0.15" />
+    <circle cx="0" cy="0" r="70" fill="none" stroke="url(#flowGradient)" stroke-width="2" opacity="0.5" />
+    
+    <!-- Flow Symbol -->
+    <g>
+      <!-- Central Core -->
+      <circle cx="0" cy="0" r="25" fill="url(#flowGradient)" opacity="0.9" />
+      <circle cx="0" cy="0" r="18" fill="#ffffff" opacity="0.15" />
+      
+      <!-- Flow Streams -->
+      <g opacity="0.8">
+        <!-- Cardinal directions -->
+        <ellipse cx="0" cy="-40" rx="15" ry="6" fill="url(#accentGradient)" transform="rotate(-10)" />
+        <ellipse cx="40" cy="0" rx="6" ry="15" fill="url(#accentGradient)" transform="rotate(80)" />
+        <ellipse cx="0" cy="40" rx="15" ry="6" fill="url(#accentGradient)" transform="rotate(170)" />
+        <ellipse cx="-40" cy="0" rx="6" ry="15" fill="url(#accentGradient)" transform="rotate(-100)" />
+        
+        <!-- Diagonal flows -->
+        <ellipse cx="28" cy="-28" rx="10" ry="5" fill="url(#accentGradient)" transform="rotate(45)" />
+        <ellipse cx="28" cy="28" rx="10" ry="5" fill="url(#accentGradient)" transform="rotate(135)" />
+        <ellipse cx="-28" cy="28" rx="10" ry="5" fill="url(#accentGradient)" transform="rotate(225)" />
+        <ellipse cx="-28" cy="-28" rx="10" ry="5" fill="url(#accentGradient)" transform="rotate(315)" />
+      </g>
+      
+      <!-- Center Symbol -->
+      <circle cx="0" cy="0" r="8" fill="#ffffff" opacity="0.9" />
+    </g>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="280" y="220" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="url(#textGradient)">HyperFlow Protocol</text>
+  
+  <!-- Subtitle -->
+  <text x="280" y="270" font-family="Arial, sans-serif" font-size="32" font-weight="500" fill="#b8c5d6">Advanced DeFi Infrastructure for HyperEVM</text>
+  
+  <!-- Key Features -->
+  <g transform="translate(280, 320)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="600" fill="#20B2AA">🔸 Native HyperCore Integration</text>
+    <text x="350" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="600" fill="#20B2AA">🔸 Cross-DEX Aggregation</text>
+    <text x="700" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="600" fill="#20B2AA">🔸 Fair Tokenomics</text>
+  </g>
+  
+  <!-- Stats Section -->
+  <g transform="translate(280, 370)">
+    <rect x="0" y="0" width="180" height="60" rx="15" fill="url(#flowGradient)" opacity="0.1" stroke="url(#flowGradient)" stroke-width="1" />
+    <text x="90" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">8-15% APY</text>
+    <text x="90" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#b8c5d6">Staking Rewards</text>
+    
+    <rect x="200" y="0" width="180" height="60" rx="15" fill="url(#flowGradient)" opacity="0.1" stroke="url(#flowGradient)" stroke-width="1" />
+    <text x="290" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">50% Revenue</text>
+    <text x="290" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#b8c5d6">Shared w/ Holders</text>
+    
+    <rect x="400" y="0" width="180" height="60" rx="15" fill="url(#flowGradient)" opacity="0.1" stroke="url(#flowGradient)" stroke-width="1" />
+    <text x="490" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Q2 2025</text>
+    <text x="490" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#b8c5d6">Presale Launch</text>
+  </g>
+  
+  <!-- Right Side Flow Effects -->
+  <g transform="translate(1200, 250)" opacity="0.6">
+    <!-- Large flow -->
+    <ellipse cx="0" cy="0" rx="100" ry="50" fill="none" stroke="url(#flowGradient)" stroke-width="2" opacity="0.5" transform="rotate(20)" />
+    <ellipse cx="20" cy="-20" rx="80" ry="40" fill="none" stroke="url(#accentGradient)" stroke-width="1" opacity="0.7" transform="rotate(25)" />
+    <ellipse cx="-15" cy="15" rx="60" ry="30" fill="none" stroke="url(#flowGradient)" stroke-width="1" opacity="0.4" transform="rotate(15)" />
+    
+    <!-- Flow particles -->
+    <circle cx="30" cy="-10" r="3" fill="url(#flowGradient)" opacity="0.8" />
+    <circle cx="-20" cy="25" r="2" fill="url(#accentGradient)" opacity="0.9" />
+    <circle cx="10" cy="30" r="2.5" fill="url(#flowGradient)" opacity="0.7" />
+    <circle cx="-30" cy="-5" r="2" fill="url(#accentGradient)" opacity="0.6" />
+  </g>
+  
+  <!-- Border -->
+  <rect x="5" y="5" width="1490" height="490" rx="25" fill="none" stroke="url(#flowGradient)" stroke-width="2" opacity="0.6" />
+</svg>
