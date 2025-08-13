@@ -1,0 +1,206 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="apyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    HyperFlow Protocol Staking APY Calculator
+  </text>
+  
+  <!-- Main calculation card -->
+  <rect x="50" y="80" width="700" height="200" fill="url(#cardGradient)" stroke="#667eea" stroke-width="2" rx="15"/>
+  
+  <!-- APY Formula -->
+  <text x="400" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">
+    Staking APY = (Annual Revenue Share ÷ Staked Token Value) × 100%
+  </text>
+  
+  <!-- Example calculation -->
+  <rect x="80" y="130" width="640" height="120" fill="white" stroke="#e9ecef" stroke-width="1" rx="10"/>
+  
+  <text x="400" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#667eea">
+    Example: $10M TVL Scenario
+  </text>
+  
+  <!-- Calculation steps -->
+  <g transform="translate(100, 170)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" fill="#333">
+      1. Vault TVL (70% of total): $7,000,000
+    </text>
+    <text x="0" y="35" font-family="Arial, sans-serif" font-size="14" fill="#333">
+      2. Annual Vault Yield (40% APY): $2,800,000
+    </text>
+    <text x="0" y="55" font-family="Arial, sans-serif" font-size="14" fill="#333">
+      3. Performance Fees (10%): $280,000
+    </text>
+    <text x="0" y="75" font-family="Arial, sans-serif" font-size="14" fill="#333">
+      4. Revenue Share to Stakers (70%): $196,000
+    </text>
+  </g>
+  
+  <g transform="translate(420, 170)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" fill="#333">
+      5. Bridge Fees (estimated): $73,000/year
+    </text>
+    <text x="0" y="35" font-family="Arial, sans-serif" font-size="14" fill="#333">
+      6. Total Annual Revenue Share: $269,000
+    </text>
+    <text x="0" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#667eea">
+      7. Staking APY (at $0.01 token): 89.7%
+    </text>
+    <text x="0" y="75" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#667eea">
+      8. Staking APY (at $0.025 token): 35.9%
+    </text>
+  </g>
+  
+  <!-- APY scenarios chart -->
+  <rect x="50" y="310" width="700" height="260" fill="white" stroke="#e9ecef" stroke-width="1" rx="10"/>
+  
+  <text x="400" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">
+    APY Scenarios by TVL and Token Price
+  </text>
+  
+  <!-- Chart grid -->
+  <g transform="translate(80, 360)">
+    <!-- Headers -->
+    <rect x="0" y="0" width="120" height="30" fill="url(#apyGradient)"/>
+    <text x="60" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      TVL
+    </text>
+    
+    <rect x="120" y="0" width="140" height="30" fill="url(#apyGradient)"/>
+    <text x="190" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      $0.005 Token
+    </text>
+    
+    <rect x="260" y="0" width="140" height="30" fill="url(#apyGradient)"/>
+    <text x="330" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      $0.01 Token
+    </text>
+    
+    <rect x="400" y="0" width="140" height="30" fill="url(#apyGradient)"/>
+    <text x="470" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      $0.025 Token
+    </text>
+    
+    <rect x="540" y="0" width="140" height="30" fill="url(#apyGradient)"/>
+    <text x="610" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      $0.05 Token
+    </text>
+    
+    <!-- Data rows -->
+    <!-- $1M TVL -->
+    <rect x="0" y="30" width="120" height="25" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+    <text x="60" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">$1M</text>
+    
+    <rect x="120" y="30" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="190" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#27ae60">112%</text>
+    
+    <rect x="260" y="30" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="330" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#27ae60">56%</text>
+    
+    <rect x="400" y="30" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="470" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#f39c12">22%</text>
+    
+    <rect x="540" y="30" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="610" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e67e22">11%</text>
+    
+    <!-- $5M TVL -->
+    <rect x="0" y="55" width="120" height="25" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+    <text x="60" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">$5M</text>
+    
+    <rect x="120" y="55" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="190" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#27ae60">168%</text>
+    
+    <rect x="260" y="55" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="330" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#27ae60">84%</text>
+    
+    <rect x="400" y="55" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="470" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#f39c12">34%</text>
+    
+    <rect x="540" y="55" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="610" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e67e22">17%</text>
+    
+    <!-- $10M TVL -->
+    <rect x="0" y="80" width="120" height="25" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+    <text x="60" y="97" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">$10M</text>
+    
+    <rect x="120" y="80" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="190" y="97" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e74c3c" font-weight="bold">179%</text>
+    
+    <rect x="260" y="80" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="330" y="97" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#27ae60" font-weight="bold">90%</text>
+    
+    <rect x="400" y="80" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="470" y="97" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#f39c12" font-weight="bold">36%</text>
+    
+    <rect x="540" y="80" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="610" y="97" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e67e22">18%</text>
+    
+    <!-- $25M TVL -->
+    <rect x="0" y="105" width="120" height="25" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+    <text x="60" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">$25M</text>
+    
+    <rect x="120" y="105" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="190" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e74c3c" font-weight="bold">224%</text>
+    
+    <rect x="260" y="105" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="330" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e74c3c" font-weight="bold">112%</text>
+    
+    <rect x="400" y="105" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="470" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#f39c12" font-weight="bold">45%</text>
+    
+    <rect x="540" y="105" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="610" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e67e22">22%</text>
+    
+    <!-- $50M TVL -->
+    <rect x="0" y="130" width="120" height="25" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+    <text x="60" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">$50M</text>
+    
+    <rect x="120" y="130" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="190" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e74c3c" font-weight="bold">280%</text>
+    
+    <rect x="260" y="130" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="330" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e74c3c" font-weight="bold">140%</text>
+    
+    <rect x="400" y="130" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="470" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#f39c12" font-weight="bold">56%</text>
+    
+    <rect x="540" y="130" width="140" height="25" fill="white" stroke="#e9ecef" stroke-width="1"/>
+    <text x="610" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e67e22">28%</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(100, 530)">
+    <circle cx="0" cy="0" r="5" fill="#e74c3c"/>
+    <text x="15" y="5" font-family="Arial, sans-serif" font-size="12" fill="#333">
+      100%+ APY (Exceptional)
+    </text>
+    
+    <circle cx="150" cy="0" r="5" fill="#27ae60"/>
+    <text x="165" y="5" font-family="Arial, sans-serif" font-size="12" fill="#333">
+      50-100% APY (Excellent)
+    </text>
+    
+    <circle cx="320" cy="0" r="5" fill="#f39c12"/>
+    <text x="335" y="5" font-family="Arial, sans-serif" font-size="12" fill="#333">
+      20-50% APY (Good)
+    </text>
+    
+    <circle cx="480" cy="0" r="5" fill="#e67e22"/>
+    <text x="495" y="5" font-family="Arial, sans-serif" font-size="12" fill="#333">
+      10-20% APY (Moderate)
+    </text>
+  </g>
+</svg>
