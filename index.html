@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyperFlow Protocol</title>
+    <title>HyperFlow Protocol Whitepaper - HyperFlow Protocol</title>
     <style>
         * {
             margin: 0;
@@ -55,7 +55,7 @@
         
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
         
@@ -63,9 +63,10 @@
             color: #b0c4de;
             text-decoration: none;
             font-size: 0.9rem;
-            padding: 5px 10px;
-            border-radius: 4px;
+            padding: 8px 12px;
+            border-radius: 6px;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
         .nav-links a:hover {
@@ -73,9 +74,15 @@
             background: rgba(0, 212, 255, 0.1);
         }
         
+        .nav-links a.active {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.2);
+            font-weight: 600;
+        }
+        
         /* Main content */
         .content {
-            margin-top: 80px;
+            margin-top: 100px;
             padding: 20px 0;
         }
         
@@ -128,7 +135,6 @@
         
         em {
             color: #a0aec0;
-            font-style: italic;
         }
         
         code {
@@ -136,7 +142,7 @@
             color: #00d4ff;
             padding: 2px 6px;
             border-radius: 4px;
-            font-family: 'Monaco', 'Menlo', monospace;
+            font-family: monospace;
             font-size: 0.9em;
         }
         
@@ -151,29 +157,12 @@
         .code-block pre {
             padding: 20px;
             margin: 0;
-            overflow-x: auto;
         }
         
         .code-block code {
             background: none;
             color: #e2e8f0;
             padding: 0;
-            font-size: 0.9rem;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        td {
-            padding: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            color: #cbd5e0;
         }
         
         hr {
@@ -193,59 +182,6 @@
             text-decoration: underline;
         }
         
-        /* Additional docs section */
-        .additional-docs {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid rgba(0, 212, 255, 0.2);
-        }
-        
-        .docs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .doc-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .doc-card:hover {
-            background: rgba(0, 212, 255, 0.1);
-            transform: translateY(-3px);
-        }
-        
-        .doc-card h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .doc-card p {
-            font-size: 0.9rem;
-            color: #a0aec0;
-            margin-bottom: 15px;
-        }
-        
-        .doc-card a {
-            display: block;
-            padding: 10px 15px;
-            background: rgba(0, 212, 255, 0.2);
-            border-radius: 6px;
-            text-align: center;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .doc-card a:hover {
-            background: rgba(0, 212, 255, 0.3);
-        }
-        
         /* Mobile responsive */
         @media (max-width: 768px) {
             .nav-content {
@@ -255,35 +191,24 @@
             
             .nav-links {
                 justify-content: center;
-                gap: 15px;
+                gap: 10px;
+            }
+            
+            .nav-links a {
+                font-size: 0.8rem;
+                padding: 6px 10px;
             }
             
             .content {
-                margin-top: 120px;
+                margin-top: 140px;
             }
             
             h1 {
                 font-size: 2rem;
             }
             
-            h2 {
-                font-size: 1.5rem;
-            }
-            
             .container {
                 padding: 15px;
-            }
-            
-            .docs-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            table {
-                font-size: 0.9rem;
-            }
-            
-            td {
-                padding: 8px;
             }
         }
     </style>
@@ -293,10 +218,7 @@
         <div class="nav-content">
             <div class="logo">HyperFlow Protocol</div>
             <div class="nav-links">
-                <a href="#overview">Overview</a>
-                <a href="#tokenomics">Tokenomics</a>
-                <a href="#architecture">Architecture</a>
-                <a href="#additional-docs">Resources</a>
+                <a href="index.html" class="active">Home</a><a href="summary.html" class="">Summary</a><a href="tokenomics.html" class="">Tokenomics</a><a href="architecture.html" class="">Architecture</a><a href="presale.html" class="">Presale</a><a href="utility.html" class="">Utility</a><a href="roadmap.html" class="">Roadmap</a>
             </div>
         </div>
     </nav>
@@ -415,13 +337,14 @@
 <strong>Total Supply</strong>: 1,000,000,000 FLOW (fixed, no inflation)
 <strong>Standard</strong>: ERC-20 on HyperEVM
 <h3>3.2 Distribution Model</h3>
-<table><tr><td>Allocation</td><td>Percentage</td><td>Amount</td><td>Vesting Schedule</td></tr>
-<tr><td>Public Sale</td><td>40%</td><td>400M FLOW</td><td>Immediate unlock</td></tr>
-<tr><td>Development</td><td>25%</td><td>250M FLOW</td><td>4-year linear vesting</td></tr>
-<tr><td>Community Rewards</td><td>20%</td><td>200M FLOW</td><td>Yield farming distribution</td></tr>
-<tr><td>Team</td><td>10%</td><td>100M FLOW</td><td>2-year cliff, 4-year vesting</td></tr>
-<tr><td>Strategic Partnerships</td><td>5%</td><td>50M FLOW</td><td>Performance-based unlock</td></tr>
-</table><h3>3.3 Utility Mechanisms</h3>
+<p>| Allocation | Percentage | Amount | Vesting Schedule |</p>
+<p>|------------|------------|---------|------------------|</p>
+<p>| Public Sale | 40% | 400M FLOW | Immediate unlock |</p>
+<p>| Development | 25% | 250M FLOW | 4-year linear vesting |</p>
+<p>| Community Rewards | 20% | 200M FLOW | Yield farming distribution |</p>
+<p>| Team | 10% | 100M FLOW | 2-year cliff, 4-year vesting |</p>
+<p>| Strategic Partnerships | 5% | 50M FLOW | Performance-based unlock |</p>
+<h3>3.3 Utility Mechanisms</h3>
 <h4>3.3.1 Governance Rights</h4>
 <ul>
 <li><strong>Democratic Voting</strong>: 1 FLOW = 1 vote on all protocol decisions</li>
@@ -619,13 +542,14 @@
 <li><strong>Democratic Governance</strong>: Fair tokenomics without tier discrimination</li>
 </ul>
 <h3>8.2 Comparison with Competitors</h3>
-<table><tr><td>Feature</td><td>HyperFlow</td><td>Yearn Finance</td><td>Convex Finance</td></tr>
-<tr><td>Revenue Share</td><td>70%</td><td>30%</td><td>50%</td></tr>
-<tr><td>Native Integration</td><td>✓ HyperCore</td><td>✗</td><td>✗</td></tr>
-<tr><td>Cross-Protocol</td><td>✓</td><td>Limited</td><td>Limited</td></tr>
-<tr><td>Delta-Neutral</td><td>✓</td><td>✗</td><td>✗</td></tr>
-<tr><td>Fair Launch</td><td>✓</td><td>✗</td><td>✗</td></tr>
-</table><h3>8.3 Competitive Advantages</h3>
+<p>| Feature | HyperFlow | Yearn Finance | Convex Finance |</p>
+<p>|---------|-----------|---------------|----------------|</p>
+<p>| Revenue Share | 70% | 30% | 50% |</p>
+<p>| Native Integration | ✓ HyperCore | ✗ | ✗ |</p>
+<p>| Cross-Protocol | ✓ | Limited | Limited |</p>
+<p>| Delta-Neutral | ✓ | ✗ | ✗ |</p>
+<p>| Fair Launch | ✓ | ✗ | ✗ |</p>
+<h3>8.3 Competitive Advantages</h3>
 <ul>
 <li><strong>First-Mover Advantage</strong>: Early entry into HyperEVM DeFi infrastructure</li>
 <li><strong>Technical Superiority</strong>: Native precompile access and advanced strategies</li>
@@ -688,42 +612,6 @@
 <strong>Last Updated</strong>: January 12, 2025
 <strong>Contact</strong>: team@hyperflow.protocol
 <strong>Website</strong>: https://hyperflow.protocol
-            
-            <div class="additional-docs" id="additional-docs">
-                <h2>Additional Documentation</h2>
-                <div class="docs-grid">
-                    <div class="doc-card">
-                        <h3>📊 Project Summary</h3>
-                        <p>Executive overview and key features</p>
-                        <a href="PROJECT_SUMMARY.md">View Summary</a>
-                    </div>
-                    <div class="doc-card">
-                        <h3>💰 Tokenomics</h3>
-                        <p>Token distribution and economics</p>
-                        <a href="TOKENOMICS.md">View Tokenomics</a>
-                    </div>
-                    <div class="doc-card">
-                        <h3>⚙️ Technical Architecture</h3>
-                        <p>Smart contract specifications</p>
-                        <a href="TECHNICAL_ARCHITECTURE.md">View Architecture</a>
-                    </div>
-                    <div class="doc-card">
-                        <h3>🚀 Presale Details</h3>
-                        <p>Presale information and timeline</p>
-                        <a href="PRESALE_DETAILS.md">View Presale</a>
-                    </div>
-                    <div class="doc-card">
-                        <h3>🔧 Utility Mechanisms</h3>
-                        <p>Token utility and governance</p>
-                        <a href="UTILITY_MECHANISMS.md">View Utilities</a>
-                    </div>
-                    <div class="doc-card">
-                        <h3>🗺️ Roadmap</h3>
-                        <p>Development timeline and milestones</p>
-                        <a href="ROADMAP.md">View Roadmap</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </body>
