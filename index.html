@@ -21,7 +21,7 @@
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 20px 60px 20px;
         }
         
         h1 {
@@ -80,7 +80,7 @@
             color: #00d4ff;
             padding: 2px 6px;
             border-radius: 4px;
-            font-family: monospace;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
             font-size: 0.9em;
         }
         
@@ -95,12 +95,15 @@
         .code-block pre {
             padding: 20px;
             margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
         
         .code-block code {
             background: none;
             color: #e2e8f0;
             padding: 0;
+            font-size: 0.85rem;
         }
         
         hr {
@@ -227,6 +230,19 @@
             color: #ffffff;
         }
         
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(77, 208, 225, 0.3);
+            text-align: center;
+            color: #7b8794;
+            font-size: 0.9rem;
+        }
+        
+        .footer p {
+            margin-bottom: 8px;
+        }
+        
         /* Mobile responsive */
         @media (max-width: 768px) {
             h1 {
@@ -238,7 +254,7 @@
             }
             
             .container {
-                padding: 20px 15px;
+                padding: 20px 15px 40px 15px;
             }
             
             .docs-grid {
@@ -307,32 +323,34 @@
         <h2>1. Introduction</h2>
         
         <h3>1.1 Problem Statement</h3>
-        <p>The HyperEVM ecosystem currently lacks sophisticated DeFi infrastructure capable of optimizing yields across multiple protocols while maintaining security and user accessibility. Existing solutions suffer from:</p>
+        <p>The HyperEVM ecosystem, while technically advanced, lacks sophisticated DeFi infrastructure comparable to established networks. Current limitations include:</p>
         
         <ul>
-            <li><strong>Fragmented Liquidity</strong>: Assets scattered across multiple protocols without unified management</li>
-            <li><strong>Limited Cross-Protocol Integration</strong>: Inefficient manual management across different DeFi platforms</li>
-            <li><strong>MEV Exploitation</strong>: Users losing value to maximum extractable value without protection</li>
-            <li><strong>High Complexity</strong>: Technical barriers preventing mainstream DeFi adoption</li>
-            <li><strong>Centralized Governance</strong>: Traditional platforms with limited user influence on protocol direction</li>
+            <li><strong>Fragmented Liquidity</strong>: Capital is scattered across multiple protocols without efficient aggregation</li>
+            <li><strong>Limited Yield Strategies</strong>: Basic staking and LP farming dominate, lacking advanced optimization</li>
+            <li><strong>Inefficient Cross-Protocol Interactions</strong>: No unified interface for complex DeFi operations</li>
+            <li><strong>MEV Exploitation</strong>: Users suffer from front-running and sandwich attacks</li>
+            <li><strong>Risk Management Gaps</strong>: Limited tools for portfolio protection and liquidation prevention</li>
         </ul>
         
         <h3>1.2 Solution Overview</h3>
-        <p>HyperFlow Protocol addresses these challenges through a comprehensive DeFi infrastructure platform featuring:</p>
+        <p>HyperFlow Protocol addresses these challenges through:</p>
         
         <ul>
-            <li><strong>Intelligent Yield Aggregation</strong>: Automated optimization across multiple yield sources</li>
-            <li><strong>Native HyperCore Integration</strong>: Direct orderbook access via precompiles for enhanced efficiency</li>
-            <li><strong>Advanced Risk Management</strong>: Delta-neutral strategies and comprehensive protection mechanisms</li>
-            <li><strong>Democratic Governance</strong>: Community-driven protocol decisions with transparent tokenomics</li>
-            <li><strong>MEV Protection</strong>: Advanced routing and slippage optimization to protect user value</li>
+            <li><strong>Unified Yield Optimization</strong>: Automated vault system maximizing returns across all HyperEVM protocols</li>
+            <li><strong>Native HyperCore Integration</strong>: Direct access to perp orderbook for delta-neutral strategies</li>
+            <li><strong>Cross-Protocol Aggregation</strong>: Seamless interaction with HyperSwap, HyperBloom, and other platforms</li>
+            <li><strong>MEV Protection</strong>: Advanced routing and slippage optimization</li>
+            <li><strong>Institutional-Grade Risk Management</strong>: Comprehensive portfolio monitoring and protection</li>
         </ul>
+        
+        <hr>
         
         <h2>2. Technical Architecture</h2>
         
         <h3>2.1 Core Components</h3>
         
-        <h4>Smart Vault System</h4>
+        <h4>2.1.1 Smart Vault System</h4>
         <p>The HyperFlow vault system employs automated strategies for yield optimization:</p>
         
         <div class="code-block">
@@ -354,14 +372,17 @@
 }</code></pre>
         </div>
         
-        <h4>HyperCore Integration</h4>
+        <h4>2.1.2 HyperCore Integration</h4>
         <p>Direct orderbook access through HyperEVM precompiles:</p>
         
         <div class="code-block">
 <pre><code>interface IHyperCorePrecompile {
-    function getOrderbookDepth(address market) external view returns (uint256, uint256);
-    function executeArbitrage(bytes calldata params) external returns (uint256);
-    function getDeltaNeutralPosition(address asset) external view returns (int256);
+    function getOrderbookDepth(address market) 
+        external view returns (uint256, uint256);
+    function executeArbitrage(bytes calldata params) 
+        external returns (uint256);
+    function getDeltaNeutralPosition(address asset) 
+        external view returns (int256);
 }</code></pre>
         </div>
         
@@ -398,6 +419,16 @@
                             <td><strong>Timelock Contracts</strong></td>
                             <td>48-hour delays</td>
                             <td>Parameter change protection</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Emergency Pause</strong></td>
+                            <td>Circuit breakers</td>
+                            <td>Risk mitigation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Audit Program</strong></td>
+                            <td>Continuous security reviews</td>
+                            <td>Vulnerability prevention</td>
                         </tr>
                     </tbody>
                 </table>
@@ -490,6 +521,18 @@
             </div>
         </div>
         
+        <h3>3.3 Utility Mechanisms</h3>
+        <p>The FLOW token provides comprehensive utility across the protocol ecosystem:</p>
+        
+        <ul>
+            <li><strong>Governance Rights</strong>: Vote on protocol parameters, upgrades, and treasury allocation</li>
+            <li><strong>Revenue Sharing</strong>: Receive 70% of protocol fees through staking rewards</li>
+            <li><strong>Yield Enhancement</strong>: Boost vault returns through token staking mechanisms</li>
+            <li><strong>Fee Discounts</strong>: Reduced transaction costs for active token holders</li>
+            <li><strong>Priority Access</strong>: Early access to new vaults and features</li>
+            <li><strong>Collateral Usage</strong>: Use as collateral for borrowing within the ecosystem</li>
+        </ul>
+        
         <h2>4. Competitive Analysis</h2>
         
         <div class="table-container">
@@ -535,15 +578,71 @@
                             <td>✗</td>
                             <td>✗ Tier-based</td>
                         </tr>
+                        <tr>
+                            <td><strong>Gas Optimization</strong></td>
+                            <td class="hyperflow-advantage">✓ HyperEVM Native</td>
+                            <td>Ethereum Limited</td>
+                            <td>Ethereum Limited</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
         
-        <h2>5. Conclusion</h2>
+        <h2>5. Development Roadmap</h2>
+        
+        <h3>5.1 Phase 1: Foundation (Months 1-3)</h3>
+        <ul>
+            <li>Core vault contracts development and testing</li>
+            <li>Security audits and formal verification</li>
+            <li>Basic yield aggregation implementation</li>
+            <li>Community token distribution</li>
+        </ul>
+        
+        <h3>5.2 Phase 2: Integration (Months 4-6)</h3>
+        <ul>
+            <li>HyperCore precompile integration</li>
+            <li>Cross-protocol aggregation layer</li>
+            <li>Advanced risk management tools</li>
+            <li>Governance mechanism activation</li>
+        </ul>
+        
+        <h3>5.3 Phase 3: Expansion (Months 7-12)</h3>
+        <ul>
+            <li>Delta-neutral strategy implementation</li>
+            <li>MEV protection mechanisms</li>
+            <li>Cross-chain bridge development</li>
+            <li>Institutional features and partnerships</li>
+        </ul>
+        
+        <h2>6. Risk Assessment</h2>
+        
+        <h3>6.1 Technical Risks</h3>
+        <ul>
+            <li><strong>Smart Contract Vulnerabilities</strong>: Mitigated through comprehensive audits and formal verification</li>
+            <li><strong>Oracle Dependencies</strong>: Multiple oracle sources and fallback mechanisms</li>
+            <li><strong>Precompile Changes</strong>: Close collaboration with HyperEVM development team</li>
+        </ul>
+        
+        <h3>6.2 Market Risks</h3>
+        <ul>
+            <li><strong>Yield Volatility</strong>: Diversified strategy allocation and risk-adjusted returns</li>
+            <li><strong>Liquidity Constraints</strong>: Progressive vault capacity scaling</li>
+            <li><strong>Competitive Pressure</strong>: Continuous innovation and community focus</li>
+        </ul>
+        
+        <h2>7. Conclusion</h2>
         <p>HyperFlow Protocol represents a significant advancement in DeFi infrastructure for the HyperEVM ecosystem. Through innovative technical solutions, democratic governance, and user-centric tokenomics, HyperFlow positions itself as the foundational layer for next-generation DeFi applications.</p>
         
-        <p>The protocol's emphasis on community ownership, transparent operations, and sustainable revenue sharing creates a new paradigm for DeFi infrastructure that prioritizes user value over protocol profits.</p>
+        <p>The protocol's emphasis on community ownership, transparent operations, and sustainable revenue sharing creates a new paradigm for DeFi infrastructure that prioritizes user value over protocol profits. With 70% revenue sharing, native HyperCore integration, and advanced yield optimization, HyperFlow delivers unprecedented value to the HyperEVM community.</p>
+        
+        <p>As the HyperEVM ecosystem continues to grow, HyperFlow Protocol will serve as the critical infrastructure enabling sophisticated DeFi strategies while maintaining the security, transparency, and accessibility that define the future of decentralized finance.</p>
+        
+        <div class="footer">
+            <p><strong>HyperFlow Protocol</strong></p>
+            <p>Advanced DeFi Infrastructure for HyperEVM</p>
+            <p>Version 1.0 | January 2025</p>
+        </div>
     </div>
 </body>
 </html>
