@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" width="500" height="350">
+  <defs>
+    <!-- Clean gradients for modern look -->
+    <linearGradient id="publicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#20B2AA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4FD1C7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="devGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#98FB98;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7dd87d;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="communityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#40E0D0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ebcbc;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="teamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00CED1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00a8aa;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="partnerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7FFFD4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5dddb0;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle shadow -->
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.2)"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="350" fill="#1a1f2e"/>
+  
+  <!-- Title -->
+  <text x="250" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFD700">HyperFlow Protocol</text>
+  <text x="250" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#20B2AA">(FLOW) Token Distribution</text>
+  
+  <!-- Clean Donut Chart -->
+  <g transform="translate(250, 180)">
+    
+    <!-- Public Sale: 40% (144 degrees) -->
+    <path d="M 0,-80 A 80,80 0 0,1 77.07,25.71 L 34.67,11.57 A 36,36 0 0,0 0,-36 Z" 
+          fill="url(#publicGrad)" filter="url(#softShadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    
+    <!-- Development: 25% (90 degrees) -->
+    <path d="M 77.07,25.71 A 80,80 0 0,1 25.71,77.07 L 11.57,34.67 A 36,36 0 0,0 34.67,11.57 Z" 
+          fill="url(#devGrad)" filter="url(#softShadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    
+    <!-- Community: 20% (72 degrees) -->
+    <path d="M 25.71,77.07 A 80,80 0 0,1 -25.71,77.07 L -11.57,34.67 A 36,36 0 0,0 11.57,34.67 Z" 
+          fill="url(#communityGrad)" filter="url(#softShadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    
+    <!-- Team: 10% (36 degrees) -->
+    <path d="M -25.71,77.07 A 80,80 0 0,1 -52.18,61.83 L -23.48,27.82 A 36,36 0 0,0 -11.57,34.67 Z" 
+          fill="url(#teamGrad)" filter="url(#softShadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    
+    <!-- Partnerships: 5% (18 degrees) -->
+    <path d="M -52.18,61.83 A 80,80 0 0,1 0,-80 L 0,-36 A 36,36 0 0,0 -23.48,27.82 Z" 
+          fill="url(#partnerGrad)" filter="url(#softShadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    
+    <!-- Center circle -->
+    <circle cx="0" cy="0" r="36" fill="#1a1f2e" stroke="#20B2AA" stroke-width="2"/>
+    
+    <!-- Simple labels positioned around the chart -->
+    
+    <!-- Public Sale -->
+    <text x="95" y="-25" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="white">Public Sale</text>
+    <text x="95" y="-12" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#20B2AA">40%</text>
+    
+    <!-- Development -->
+    <text x="95" y="45" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="white">Development</text>
+    <text x="95" y="58" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#98FB98">25%</text>
+    
+    <!-- Community -->
+    <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="white">Community</text>
+    <text x="15" y="118" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#40E0D0">20%</text>
+    
+    <!-- Team -->
+    <text x="-65" y="105" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="white">Team</text>
+    <text x="-65" y="118" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#00CED1">10%</text>
+    
+    <!-- Partnerships -->
+    <text x="-95" y="45" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="white">Partnerships</text>
+    <text x="-95" y="58" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#7FFFD4">5%</text>
+    
+  </g>
+</svg>
