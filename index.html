@@ -125,10 +125,6 @@
             color: #fbbf24;
         }
         
-        .whitepaper-content .yellow-section {
-            color: #fbbf24;
-        }
-        
         .whitepaper-content p {
             color: #cbd5e1;
             margin-bottom: 15px;
@@ -151,7 +147,7 @@
         
         .whitepaper-content code {
             background: #0f172a;
-            color: #14b8a6;
+            color: #f59e0b;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'Monaco', 'Consolas', monospace;
@@ -166,12 +162,44 @@
             margin: 20px 0;
             overflow-x: auto;
             font-size: 0.9rem;
+            position: relative;
         }
         
         .whitepaper-content pre code {
             background: none;
-            color: #06b6d4;
             padding: 0;
+            color: #e5e7eb;
+        }
+        
+        /* Syntax highlighting for code blocks */
+        .whitepaper-content pre .keyword {
+            color: #c678dd;
+            font-weight: 600;
+        }
+        
+        .whitepaper-content pre .string {
+            color: #98c379;
+        }
+        
+        .whitepaper-content pre .comment {
+            color: #7c8b9a;
+            font-style: italic;
+        }
+        
+        .whitepaper-content pre .function {
+            color: #61afef;
+        }
+        
+        .whitepaper-content pre .type {
+            color: #e06c75;
+        }
+        
+        .whitepaper-content pre .number {
+            color: #d19a66;
+        }
+        
+        .whitepaper-content pre .operator {
+            color: #56b6c2;
         }
         
         /* Table Styling - Mobile Optimized */
@@ -333,39 +361,39 @@
             <h4>Smart Vault System</h4>
             <p>The HyperFlow vault system employs automated strategies for yield optimization:</p>
             
-            <pre><code>contract HyperFlowVault {
-    struct Strategy {
-        uint256 allocation;
-        uint256 riskScore;
-        uint256 expectedAPY;
+            <pre><code><span class="keyword">contract</span> <span class="type">HyperFlowVault</span> {
+    <span class="keyword">struct</span> <span class="type">Strategy</span> {
+        <span class="type">uint256</span> allocation;
+        <span class="type">uint256</span> riskScore;
+        <span class="type">uint256</span> expectedAPY;
     }
     
-    mapping(address => Strategy[]) public userStrategies;
+    <span class="keyword">mapping</span>(<span class="type">address</span> <span class="operator">=></span> <span class="type">Strategy</span>[]) <span class="keyword">public</span> userStrategies;
     
-    function optimizeYield(address user) external {
-        // Automated rebalancing logic
-        // Risk assessment algorithms
-        // Compound reward harvesting
+    <span class="keyword">function</span> <span class="function">optimizeYield</span>(<span class="type">address</span> user) <span class="keyword">external</span> {
+        <span class="comment">// Automated rebalancing logic</span>
+        <span class="comment">// Risk assessment algorithms</span>
+        <span class="comment">// Compound reward harvesting</span>
     }
 }</code></pre>
             
             <h3>2.1.2 HyperCore Integration</h3>
             <p>Direct orderbook access through HyperEVM precompiles:</p>
             
-            <pre><code>interface IHyperCorePrecompile {
-    function getOrderbookDepth(address market) external view returns (uint256);
-    function executeArbitrage(bytes calldata params) external;
-    function getBestNeutralPosition(address asset) external view returns (uint256);
+            <pre><code><span class="keyword">interface</span> <span class="type">IHyperCorePrecompile</span> {
+    <span class="keyword">function</span> <span class="function">getOrderbookDepth</span>(<span class="type">address</span> market) <span class="keyword">external</span> <span class="keyword">view</span> <span class="keyword">returns</span> (<span class="type">uint256</span>);
+    <span class="keyword">function</span> <span class="function">executeArbitrage</span>(<span class="type">bytes</span> <span class="keyword">calldata</span> params) <span class="keyword">external</span>;
+    <span class="keyword">function</span> <span class="function">getBestNeutralPosition</span>(<span class="type">address</span> asset) <span class="keyword">external</span> <span class="keyword">view</span> <span class="keyword">returns</span> (<span class="type">uint256</span>);
 }</code></pre>
             
             <h4 class="yellow-header">Aggregation & Routing Engine</h4>
-            <pre><code>// Cross-DEX trade routing
-contract LiquidityAggregator {
-    // HyperSwap integration
-    // HyperBloom routing
-    // HyperCore orderbook access
-    // MEV protection mechanisms
-    // Slippage optimization
+            <pre><code><span class="comment">// Cross-DEX trade routing</span>
+<span class="keyword">contract</span> <span class="type">LiquidityAggregator</span> {
+    <span class="comment">// HyperSwap integration</span>
+    <span class="comment">// HyperBloom routing</span>
+    <span class="comment">// HyperCore orderbook access</span>
+    <span class="comment">// MEV protection mechanisms</span>
+    <span class="comment">// Slippage optimization</span>
 }</code></pre>
             
             <h2>3. Token Economics</h2>
