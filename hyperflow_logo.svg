@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60" version="1.1">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#20B2AA;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#00CED1;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#98FB98;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#40E0D0;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:white;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#98FB98;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:white;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Flow symbol - geometric representation of liquidity flow -->
+  <g transform="translate(10, 10)">
+    <!-- Main flow lines -->
+    <path d="M5 20 Q15 10, 25 20 Q35 30, 45 20" stroke="url(#flowGradient)" stroke-width="2.5" fill="none" opacity="0.9"/>
+    <path d="M5 25 Q15 35, 25 25 Q35 15, 45 25" stroke="url(#flowGradient)" stroke-width="2.5" fill="none" opacity="0.7"/>
+    <path d="M5 30 Q15 20, 25 30 Q35 40, 45 30" stroke="url(#flowGradient)" stroke-width="2.5" fill="none" opacity="0.8"/>
+    
+    <!-- Geometric nodes -->
+    <circle cx="5" cy="20" r="2" fill="white" opacity="0.9"/>
+    <circle cx="25" cy="20" r="2" fill="white" opacity="0.9"/>
+    <circle cx="45" cy="20" r="2" fill="white" opacity="0.9"/>
+    
+    <!-- Tech grid pattern -->
+    <rect x="0" y="15" width="2" height="20" fill="url(#logoGradient)" opacity="0.3"/>
+    <rect x="48" y="15" width="2" height="20" fill="url(#logoGradient)" opacity="0.3"/>
+  </g>
+  
+  <!-- HyperFlow text -->
+  <text x="70" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" stroke="rgba(32,178,170,0.3)" stroke-width="0.5">HyperFlow</text>
+  
+  <!-- Tech accent lines -->
+  <line x1="70" y1="45" x2="120" y2="45" stroke="url(#logoGradient)" stroke-width="1" opacity="0.4"/>
+  <line x1="125" y1="45" x2="140" y2="45" stroke="url(#logoGradient)" stroke-width="1" opacity="0.6"/>
+  <line x1="145" y1="45" x2="155" y2="45" stroke="url(#logoGradient)" stroke-width="1" opacity="0.4"/>
+</svg>
