@@ -1,284 +1,497 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Technical Architecture</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Architecture - HyperFlow Protocol</title>
     <style>
-        body { 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 40px 20px;
-            background: #0a0f1c; 
-            color: #e2e8f0; 
-            line-height: 1.7;
+            background: #0a0f1c;
+            color: #e2e8f0;
+            line-height: 1.6;
         }
-        h1 { 
-            color: #00d4ff; 
-            border-bottom: 3px solid #00d4ff;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        h2 { 
-            color: #4dd0e1; 
-            margin-top: 40px;
-            margin-bottom: 20px;
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 28, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
         }
-        h3 { 
-            color: #81c784; 
-            margin-top: 30px;
+        
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
-        h4 { 
-            color: #ffb74d; 
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
         }
-        p { 
-            margin-bottom: 16px; 
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-        ul, ol { 
-            margin-bottom: 16px; 
-            padding-left: 30px;
+        
+        .nav-links a {
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
-        li { 
-            margin-bottom: 8px; 
+        
+        .nav-links a:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
         }
-        strong { 
-            color: #ffffff; 
+        
+        .nav-links a.active {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.2);
             font-weight: 600;
         }
-        .back-link {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: #00d4ff;
-            color: #0a0f1c;
-            padding: 10px 15px;
+        
+        /* Main content */
+        .content {
+            margin-top: 100px;
+            padding: 20px 0;
+        }
+        
+        h1 {
+            color: #00d4ff;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #4dd0e1;
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid rgba(77, 208, 225, 0.3);
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            color: #81c784;
+            font-size: 1.4rem;
+            margin: 25px 0 10px 0;
+        }
+        
+        h4 {
+            color: #ffb74d;
+            font-size: 1.2rem;
+            margin: 20px 0 8px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #cbd5e0;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: #cbd5e0;
+        }
+        
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        em {
+            color: #a0aec0;
+        }
+        
+        code {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .code-block pre {
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .code-block code {
+            background: none;
+            color: #e2e8f0;
+            padding: 0;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+            margin: 30px 0;
+        }
+        
+        a {
+            color: #00d4ff;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            z-index: 1000;
         }
-        .back-link:hover {
-            background: #4dd0e1;
+        
+        a:hover {
+            color: #4dd0e1;
+            text-decoration: underline;
         }
+        
+        /* Mobile responsive */
         @media (max-width: 768px) {
-            body { padding: 20px 15px; }
-            .back-link { position: relative; display: block; text-align: center; margin-bottom: 20px; }
+            .nav-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .nav-links a {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+            
+            .content {
+                margin-top: 140px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="/" class="back-link">← Back to Documentation</a>
-    <h1>HyperFlow Protocol - Technical Architecture</h1></p><p><h2>System Overview</h2></p><p>HyperFlow Protocol is built as a modular DeFi infrastructure system on HyperEVM, designed to leverage the unique dual-block architecture and native orderbook integration that sets HyperEVM apart from other EVM chains.</p><p><h2>Core Architecture Components</h2></p><p><h3>1. Smart Contract System</h3></p><p><h4>Vault Management Contracts</h4>
-<p>```solidity
-<p>// Core vault logic with yield optimization
-<p>contract HyperFlowVault {
-<p>    - Auto-compounding mechanisms
-<p>    - Multi-protocol yield routing
-<p>    - Emergency pause and withdrawal
-<p>    - Performance fee calculation
-<p>    - Risk parameter enforcement
-<p>}</p><p>// Strategy-specific implementations
-<p>contract DeltaNeutralStrategy {
-<p>    - HyperCore perp position management
-<p>    - Spot position hedging
-<p>    - Automatic rebalancing triggers
-<p>    - Profit/loss tracking
-<p>}
-<p>```</p><p><h4>Aggregation & Routing Engine</h4>
-<p>```solidity
-<p>// Cross-DEX trade routing
-<p>contract LiquidityAggregator {
-<p>    - HyperSwap integration
-<p>    - HyperBloom routing
-<p>    - HyperCore orderbook access
-<p>    - MEV protection mechanisms
-<p>    - Slippage optimization
-<p>}</p><p>// Cross-chain bridge management
-<p>contract CrossChainManager {
-<p>    - DeBridge integration
-<p>    - Hyperlane messaging
-<p>    - Asset custody and security
-<p>    - Bridge fee management
-<p>}
-<p>```</p><p><h4>Governance & Token Contracts</h4>
-<p>```solidity
-<p>// FLOW token with advanced features
-<p>contract FlowToken {
-<p>    - ERC-20 standard compliance
-<p>    - Staking mechanism integration
-<p>    - Governance voting weights
-<p>    - Revenue distribution logic
-<p>}</p><p>// Decentralized governance system
-<p>contract GovernanceModule {
-<p>    - Proposal creation and voting
-<p>    - Treasury management
-<p>    - Parameter adjustment controls
-<p>    - Multi-sig integration
-<p>}
-<p>```</p><p><h3>2. HyperEVM-Specific Optimizations</h3></p><p><h4>Native Orderbook Integration</h4>
-<ul><li>**Precompile Access**: Direct HyperCore orderbook read/write</li>
-<li>**Sub-Second Execution**: Leverage 1-second finality for arbitrage</li>
-<li>**Dual-Block Architecture**: Small blocks for simple operations, large blocks for complex strategies</li>
-<li>**Gas Optimization**: Efficient use of 2M gas limit for quick transactions</li></p><p><h4>Performance Enhancements</h4>
-<li>**Batch Operations**: Group multiple trades in large blocks (30M gas)</li>
-<li>**State Optimization**: Minimize storage reads/writes for gas efficiency</li>
-<li>**Event Indexing**: Optimized event emission for real-time monitoring</li>
-<li>**Memory Management**: Efficient data structures for complex calculations</li></p><p><h3>3. Backend Infrastructure</h3></p><p><h4>Real-Time Data Processing</h4>
-<p>```typescript
-<p>// WebSocket connections for live market data
-<p>class MarketDataManager {
-<p>    - HyperCore API integration
-<p>    - DEX price feed aggregation
-<p>    - Yield rate monitoring
-<p>    - Risk metric calculations
-<p>}</p><p>// Automated strategy execution
-<p>class StrategyEngine {
-<p>    - Position monitoring
-<p>    - Rebalancing triggers
-<p>    - Emergency exit conditions
-<p>    - Performance tracking
-<p>}
-<p>```</p><p><h4>Database Architecture</h4>
-<p>```sql
-<p>-- PostgreSQL schema for analytics
-<p>Tables:
-<li>user_positions: Real-time position tracking</li>
-<li>vault_performance: Historical yield data</li>
-<li>trading_history: Complete transaction records</li>
-<li>risk_metrics: Real-time risk assessments</li>
-<li>protocol_revenue: Fee collection and distribution</li>
-<p>```</p><p><h3>4. Security Architecture</h3></p><p><h4>Access Control & Permissions</h4>
-<p>```solidity
-<p>// Role-based access control
-<p>contract SecurityModule {
-<p>    bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
-<p>    bytes32 public constant STRATEGY_MANAGER_ROLE = keccak256("STRATEGY_MANAGER_ROLE");
-<p>    bytes32 public constant EMERGENCY_ROLE = keccak256("EMERGENCY_ROLE");
-<p>    
-<p>    // Multi-signature requirements
-<p>    mapping(bytes32 => uint256) public roleThresholds;
-<p>    
-<p>    modifier onlyRole(bytes32 role) {
-<p>        require(hasRole(role, msg.sender), "Access denied");
-<p>        _;
-<p>    }
-<p>}
-<p>```</p><p><h4>Oracle Security & Price Feeds</h4>
-<p>```solidity
-<p>// Multi-source price validation
-<p>contract OracleManager {
-<p>    struct PriceData {
-<p>        uint256 price;
-<p>        uint256 timestamp;
-<p>        address source;
-<p>    }
-<p>    
-<p>    function getSecurePrice(address asset) external view returns (uint256) {
-<p>        PriceData[] memory sources = aggregatePrices(asset);
-<p>        validatePriceFeeds(sources);
-<p>        return calculateMedianPrice(sources);
-<p>    }
-<p>}
-<p>```</p><p><h4>Emergency Systems</h4>
-<p>```solidity
-<p>// Circuit breaker implementation
-<p>contract EmergencyControls {
-<p>    bool public emergencyStop = false;
-<p>    uint256 public constant MAX_TVL_DROP = 1000; // 10%
-<p>    uint256 public constant LARGE_WITHDRAWAL_THRESHOLD = 50000e18; // $50K
-<p>    
-<p>    modifier notPaused() {
-<p>        require(!emergencyStop, "Protocol paused");
-<p>        _;
-<p>    }
-<p>    
-<p>    function emergencyPause() external onlyRole(EMERGENCY_ROLE) {
-<p>        emergencyStop = true;
-<p>        emit EmergencyPause(block.timestamp);
-<p>    }
-<p>}
-<p>```</p><p><h3>5. Frontend Architecture</h3></p><p><h4>React/Next.js Application</h4>
-<p>```typescript
-<p>// Component structure
-<p>components/
-<p>├── Dashboard/          - Main user interface
-<p>├── VaultManager/       - Vault creation and management
-<p>├── Analytics/          - Performance and risk dashboards
-<p>├── Governance/         - Voting and proposal interface
-<p>├── Security/           - Security monitoring and alerts
-<p>├── Portfolio/          - Position tracking and management
-<p>└── Settings/           - User preferences and security
-<p>```</p><p><h4>Web3 Integration</h4>
-<p>```typescript
-<p>// Wallet and contract interactions
-<p>class Web3Manager {
-<p>    - MetaMask integration
-<p>    - Contract interaction layer
-<p>    - Transaction management
-<p>    - Error handling and retries
-<p>}</p><p>// Real-time updates
-<p>class SubscriptionManager {
-<p>    - WebSocket connections
-<p>    - Position updates
-<p>    - Price feed subscriptions
-<p>    - Event monitoring
-<p>}
-<p>```</p><p><h2>Integration Layer</h2></p><p><h3>HyperEVM Ecosystem Integrations</h3></p><p><h4>DEX Integrations</h4>
-<li>**HyperSwap**: Native AMM integration for spot trading</li>
-<li>**HyperBloom**: Yield optimization and vault strategies</li>
-<li>**ProjectX**: Additional liquidity sourcing</li>
-<li>**KittenSwap**: Alternative routing options</li></p><p><h4>Lending/Borrowing Protocols</h4>
-<li>**HyperLend**: Collateral management and borrowing</li>
-<li>**Cluster**: Liquid staking integration</li>
-<li>**Tenderize**: Additional staking options</li>
-<li>**HyperFlash**: Flash loan capabilities</li></p><p><h4>Infrastructure Partners</h4>
-<li>**Hyperlane**: Cross-chain messaging and bridging</li>
-<li>**DeBridge**: Multi-asset bridge integration</li>
-<li>**The Graph**: Data indexing and querying</li>
-<li>**Chainlink**: Price feeds and automation</li></p><p><h3>External Integrations</h3></p><p><h4>Oracle Network</h4>
-<li>**HyperCore Orderbook**: Primary price source</li>
-<li>**Chainlink Feeds**: External market data</li>
-<li>**Custom Oracles**: Yield rate aggregation</li>
-<li>**Time-Weighted Averages**: Manipulation resistance</li></p><p><h4>Security Infrastructure</h4>
-<li>**OpenZeppelin**: Battle-tested contract libraries</li>
-<li>**Multi-Sig Wallets**: Gnosis Safe integration</li>
-<li>**Timelock Contracts**: Governance execution delays</li>
-<li>**Emergency Pause**: Circuit breaker mechanisms</li></p><p><h2>Data Architecture</h2></p><p><h3>On-Chain Data</h3>
-<li>**Transaction History**: Complete audit trail</li>
-<li>**Position States**: Real-time portfolio tracking</li>
-<li>**Governance Records**: Voting and proposal history</li>
-<li>**Revenue Distribution**: Transparent fee sharing</li></p><p><h3>Off-Chain Analytics</h3>
-<li>**Performance Metrics**: Historical yield analysis</li>
-<li>**Risk Assessments**: Real-time position monitoring</li>
-<li>**User Behavior**: Interface optimization data</li>
-<li>**Market Intelligence**: Cross-protocol trend analysis</li></p><p><h2>Security Architecture</h2></p><p><h3>Smart Contract Security</h3>
-<li>**Multi-Layer Audits**: Certik, ConsenSys, Trail of Bits</li>
-<li>**Formal Verification**: Critical function mathematical proofs</li>
-<li>**Bug Bounty Program**: Ongoing security incentives</li>
-<li>**Gradual Deployment**: Phased rollout with monitoring</li></p><p><h3>Operational Security</h3>
-<li>**Multi-Sig Treasury**: Community-controlled funds</li>
-<li>**Timelock Governance**: 48-hour execution delays</li>
-<li>**Emergency Procedures**: Rapid response protocols</li>
-<li>**Insurance Coverage**: Nexus Mutual integration</li></p><p><h3>User Security</h3>
-<li>**Non-Custodial Design**: Users maintain asset control</li>
-<li>**Slippage Protection**: Maximum loss parameters</li>
-<li>**Position Monitoring**: Automated risk alerts</li>
-<li>**Recovery Mechanisms**: Emergency withdrawal options</li></p><p><h2>Scalability & Performance</h2></p><p><h3>HyperEVM Optimization</h3>
-<li>**Gas Efficiency**: Optimized for dual-block architecture</li>
-<li>**Parallel Processing**: Concurrent strategy execution</li>
-<li>**State Management**: Minimal storage footprint</li>
-<li>**Event Optimization**: Efficient log emission</li></p><p><h3>Backend Scaling</h3>
-<li>**Microservices**: Modular service architecture</li>
-<li>**Load Balancing**: Distributed request handling</li>
-<li>**Caching Layer**: Redis for fast data access</li>
-<li>**Database Optimization**: Indexed queries and partitioning</li></p><p><h2>Monitoring & Analytics</h2></p><p><h3>Real-Time Monitoring</h3>
-<li>**System Health**: Service uptime and performance</li>
-<li>**Transaction Success**: Error rate tracking</li>
-<li>**User Activity**: Interface engagement metrics</li>
-<li>**Protocol Performance**: Yield and fee generation</li></p><p><h3>Business Intelligence</h3>
-<li>**TVL Tracking**: Total value locked growth</li>
-<li>**User Retention**: Cohort analysis and churn</li>
-<li>**Revenue Analytics**: Fee collection and distribution</li>
-<li>**Competitive Analysis**: Market position monitoring</li></ul></p><p>This technical architecture ensures HyperFlow Protocol can deliver high-performance DeFi services while maintaining security, scalability, and user experience standards expected in the modern DeFi ecosystem.
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">HyperFlow Protocol</div>
+            <div class="nav-links">
+                <a href="index.html" class="">Home</a><a href="summary.html" class="">Summary</a><a href="tokenomics.html" class="">Tokenomics</a><a href="architecture.html" class="active">Architecture</a><a href="presale.html" class="">Presale</a><a href="utility.html" class="">Utility</a><a href="roadmap.html" class="">Roadmap</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h1>HyperFlow Protocol - Technical Architecture</h1>
+<h2>System Overview</h2>
+<p>HyperFlow Protocol is built as a modular DeFi infrastructure system on HyperEVM, designed to leverage the unique dual-block architecture and native orderbook integration that sets HyperEVM apart from other EVM chains.</p>
+<h2>Core Architecture Components</h2>
+<h3>1. Smart Contract System</h3>
+<h4>Vault Management Contracts</h4>
+<p><div class="code-block"><pre><code>// Core vault logic with yield optimization
+contract HyperFlowVault {
+    - Auto-compounding mechanisms
+    - Multi-protocol yield routing
+    - Emergency pause and withdrawal
+    - Performance fee calculation
+    - Risk parameter enforcement
+}
+// Strategy-specific implementations
+contract DeltaNeutralStrategy {
+    - HyperCore perp position management
+    - Spot position hedging
+    - Automatic rebalancing triggers
+    - Profit/loss tracking
+}</code></pre></div></p>
+<h4>Aggregation & Routing Engine</h4>
+<p><div class="code-block"><pre><code>// Cross-DEX trade routing
+contract LiquidityAggregator {
+    - HyperSwap integration
+    - HyperBloom routing
+    - HyperCore orderbook access
+    - MEV protection mechanisms
+    - Slippage optimization
+}
+// Cross-chain bridge management
+contract CrossChainManager {
+    - DeBridge integration
+    - Hyperlane messaging
+    - Asset custody and security
+    - Bridge fee management
+}</code></pre></div></p>
+<h4>Governance & Token Contracts</h4>
+<p><div class="code-block"><pre><code>// FLOW token with advanced features
+contract FlowToken {
+    - ERC-20 standard compliance
+    - Staking mechanism integration
+    - Governance voting weights
+    - Revenue distribution logic
+}
+// Decentralized governance system
+contract GovernanceModule {
+    - Proposal creation and voting
+    - Treasury management
+    - Parameter adjustment controls
+    - Multi-sig integration
+}</code></pre></div></p>
+<h3>2. HyperEVM-Specific Optimizations</h3>
+<h4>Native Orderbook Integration</h4>
+<ul>
+<li><strong>Precompile Access</strong>: Direct HyperCore orderbook read/write</li>
+<li><strong>Sub-Second Execution</strong>: Leverage 1-second finality for arbitrage</li>
+<li><strong>Dual-Block Architecture</strong>: Small blocks for simple operations, large blocks for complex strategies</li>
+<li><strong>Gas Optimization</strong>: Efficient use of 2M gas limit for quick transactions</li>
+</ul>
+<h4>Performance Enhancements</h4>
+<ul>
+<li><strong>Batch Operations</strong>: Group multiple trades in large blocks (30M gas)</li>
+<li><strong>State Optimization</strong>: Minimize storage reads/writes for gas efficiency</li>
+<li><strong>Event Indexing</strong>: Optimized event emission for real-time monitoring</li>
+<li><strong>Memory Management</strong>: Efficient data structures for complex calculations</li>
+</ul>
+<h3>3. Backend Infrastructure</h3>
+<h4>Real-Time Data Processing</h4>
+<p><div class="code-block"><pre><code>// WebSocket connections for live market data
+class MarketDataManager {
+    - HyperCore API integration
+    - DEX price feed aggregation
+    - Yield rate monitoring
+    - Risk metric calculations
+}
+// Automated strategy execution
+class StrategyEngine {
+    - Position monitoring
+    - Rebalancing triggers
+    - Emergency exit conditions
+    - Performance tracking
+}</code></pre></div></p>
+<h4>Database Architecture</h4>
+<p><div class="code-block"><pre><code>-- PostgreSQL schema for analytics
+Tables:
+- user_positions: Real-time position tracking
+- vault_performance: Historical yield data
+- trading_history: Complete transaction records
+- risk_metrics: Real-time risk assessments
+- protocol_revenue: Fee collection and distribution</code></pre></div></p>
+<h3>4. Security Architecture</h3>
+<h4>Access Control & Permissions</h4>
+<p><div class="code-block"><pre><code>// Role-based access control
+contract SecurityModule {
+    bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
+    bytes32 public constant STRATEGY_MANAGER_ROLE = keccak256("STRATEGY_MANAGER_ROLE");
+    bytes32 public constant EMERGENCY_ROLE = keccak256("EMERGENCY_ROLE");
+    // Multi-signature requirements
+    mapping(bytes32 => uint256) public roleThresholds;
+    modifier onlyRole(bytes32 role) {
+        require(hasRole(role, msg.sender), "Access denied");
+        _;
+    }
+}</code></pre></div></p>
+<h4>Oracle Security & Price Feeds</h4>
+<p><div class="code-block"><pre><code>// Multi-source price validation
+contract OracleManager {
+    struct PriceData {
+        uint256 price;
+        uint256 timestamp;
+        address source;
+    }
+    function getSecurePrice(address asset) external view returns (uint256) {
+        PriceData[] memory sources = aggregatePrices(asset);
+        validatePriceFeeds(sources);
+        return calculateMedianPrice(sources);
+    }
+}</code></pre></div></p>
+<h4>Emergency Systems</h4>
+<p><div class="code-block"><pre><code>// Circuit breaker implementation
+contract EmergencyControls {
+    bool public emergencyStop = false;
+    uint256 public constant MAX_TVL_DROP = 1000; // 10%
+    uint256 public constant LARGE_WITHDRAWAL_THRESHOLD = 50000e18; // $50K
+    modifier notPaused() {
+        require(!emergencyStop, "Protocol paused");
+        _;
+    }
+    function emergencyPause() external onlyRole(EMERGENCY_ROLE) {
+        emergencyStop = true;
+        emit EmergencyPause(block.timestamp);
+    }
+}</code></pre></div></p>
+<h3>5. Frontend Architecture</h3>
+<h4>React/Next.js Application</h4>
+<p><div class="code-block"><pre><code>// Component structure
+components/
+├── Dashboard/          - Main user interface
+├── VaultManager/       - Vault creation and management
+├── Analytics/          - Performance and risk dashboards
+├── Governance/         - Voting and proposal interface
+├── Security/           - Security monitoring and alerts
+├── Portfolio/          - Position tracking and management
+└── Settings/           - User preferences and security</code></pre></div></p>
+<h4>Web3 Integration</h4>
+<p><div class="code-block"><pre><code>// Wallet and contract interactions
+class Web3Manager {
+    - MetaMask integration
+    - Contract interaction layer
+    - Transaction management
+    - Error handling and retries
+}
+// Real-time updates
+class SubscriptionManager {
+    - WebSocket connections
+    - Position updates
+    - Price feed subscriptions
+    - Event monitoring
+}</code></pre></div></p>
+<h2>Integration Layer</h2>
+<h3>HyperEVM Ecosystem Integrations</h3>
+<h4>DEX Integrations</h4>
+<ul>
+<li><strong>HyperSwap</strong>: Native AMM integration for spot trading</li>
+<li><strong>HyperBloom</strong>: Yield optimization and vault strategies</li>
+<li><strong>ProjectX</strong>: Additional liquidity sourcing</li>
+<li><strong>KittenSwap</strong>: Alternative routing options</li>
+</ul>
+<h4>Lending/Borrowing Protocols</h4>
+<ul>
+<li><strong>HyperLend</strong>: Collateral management and borrowing</li>
+<li><strong>Cluster</strong>: Liquid staking integration</li>
+<li><strong>Tenderize</strong>: Additional staking options</li>
+<li><strong>HyperFlash</strong>: Flash loan capabilities</li>
+</ul>
+<h4>Infrastructure Partners</h4>
+<ul>
+<li><strong>Hyperlane</strong>: Cross-chain messaging and bridging</li>
+<li><strong>DeBridge</strong>: Multi-asset bridge integration</li>
+<li><strong>The Graph</strong>: Data indexing and querying</li>
+<li><strong>Chainlink</strong>: Price feeds and automation</li>
+</ul>
+<h3>External Integrations</h3>
+<h4>Oracle Network</h4>
+<ul>
+<li><strong>HyperCore Orderbook</strong>: Primary price source</li>
+<li><strong>Chainlink Feeds</strong>: External market data</li>
+<li><strong>Custom Oracles</strong>: Yield rate aggregation</li>
+<li><strong>Time-Weighted Averages</strong>: Manipulation resistance</li>
+</ul>
+<h4>Security Infrastructure</h4>
+<ul>
+<li><strong>OpenZeppelin</strong>: Battle-tested contract libraries</li>
+<li><strong>Multi-Sig Wallets</strong>: Gnosis Safe integration</li>
+<li><strong>Timelock Contracts</strong>: Governance execution delays</li>
+<li><strong>Emergency Pause</strong>: Circuit breaker mechanisms</li>
+</ul>
+<h2>Data Architecture</h2>
+<h3>On-Chain Data</h3>
+<ul>
+<li><strong>Transaction History</strong>: Complete audit trail</li>
+<li><strong>Position States</strong>: Real-time portfolio tracking</li>
+<li><strong>Governance Records</strong>: Voting and proposal history</li>
+<li><strong>Revenue Distribution</strong>: Transparent fee sharing</li>
+</ul>
+<h3>Off-Chain Analytics</h3>
+<ul>
+<li><strong>Performance Metrics</strong>: Historical yield analysis</li>
+<li><strong>Risk Assessments</strong>: Real-time position monitoring</li>
+<li><strong>User Behavior</strong>: Interface optimization data</li>
+<li><strong>Market Intelligence</strong>: Cross-protocol trend analysis</li>
+</ul>
+<h2>Security Architecture</h2>
+<h3>Smart Contract Security</h3>
+<ul>
+<li><strong>Multi-Layer Audits</strong>: Certik, ConsenSys, Trail of Bits</li>
+<li><strong>Formal Verification</strong>: Critical function mathematical proofs</li>
+<li><strong>Bug Bounty Program</strong>: Ongoing security incentives</li>
+<li><strong>Gradual Deployment</strong>: Phased rollout with monitoring</li>
+</ul>
+<h3>Operational Security</h3>
+<ul>
+<li><strong>Multi-Sig Treasury</strong>: Community-controlled funds</li>
+<li><strong>Timelock Governance</strong>: 48-hour execution delays</li>
+<li><strong>Emergency Procedures</strong>: Rapid response protocols</li>
+<li><strong>Insurance Coverage</strong>: Nexus Mutual integration</li>
+</ul>
+<h3>User Security</h3>
+<ul>
+<li><strong>Non-Custodial Design</strong>: Users maintain asset control</li>
+<li><strong>Slippage Protection</strong>: Maximum loss parameters</li>
+<li><strong>Position Monitoring</strong>: Automated risk alerts</li>
+<li><strong>Recovery Mechanisms</strong>: Emergency withdrawal options</li>
+</ul>
+<h2>Scalability & Performance</h2>
+<h3>HyperEVM Optimization</h3>
+<ul>
+<li><strong>Gas Efficiency</strong>: Optimized for dual-block architecture</li>
+<li><strong>Parallel Processing</strong>: Concurrent strategy execution</li>
+<li><strong>State Management</strong>: Minimal storage footprint</li>
+<li><strong>Event Optimization</strong>: Efficient log emission</li>
+</ul>
+<h3>Backend Scaling</h3>
+<ul>
+<li><strong>Microservices</strong>: Modular service architecture</li>
+<li><strong>Load Balancing</strong>: Distributed request handling</li>
+<li><strong>Caching Layer</strong>: Redis for fast data access</li>
+<li><strong>Database Optimization</strong>: Indexed queries and partitioning</li>
+</ul>
+<h2>Monitoring & Analytics</h2>
+<h3>Real-Time Monitoring</h3>
+<ul>
+<li><strong>System Health</strong>: Service uptime and performance</li>
+<li><strong>Transaction Success</strong>: Error rate tracking</li>
+<li><strong>User Activity</strong>: Interface engagement metrics</li>
+<li><strong>Protocol Performance</strong>: Yield and fee generation</li>
+</ul>
+<h3>Business Intelligence</h3>
+<ul>
+<li><strong>TVL Tracking</strong>: Total value locked growth</li>
+<li><strong>User Retention</strong>: Cohort analysis and churn</li>
+<li><strong>Revenue Analytics</strong>: Fee collection and distribution</li>
+<li><strong>Competitive Analysis</strong>: Market position monitoring</li>
+</ul>
+<p>This technical architecture ensures HyperFlow Protocol can deliver high-performance DeFi services while maintaining security, scalability, and user experience standards expected in the modern DeFi ecosystem.</p>
+        </div>
+    </div>
 </body>
 </html>
