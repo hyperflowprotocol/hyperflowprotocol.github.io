@@ -358,28 +358,6 @@
     function getBestNeutralPosition(address asset) external view returns (uint256);
 }</code></pre>
             
-            <h3>2.1.3 Cross-Protocol Router</h3>
-            <p>Unified interface for multi-protocol interactions:</p>
-            
-            <pre><code>contract CrossProtocolRouter {
-    struct ProtocolAdapter {
-        address adapter;
-        uint256 tvl;
-        uint256 apy;
-        bool active;
-    }
-    
-    function findOptimalRoute(
-        address tokenIn,
-        address tokenOut,
-        uint256 amountIn
-    ) external view returns (Route memory) {
-        // Multi-source price comparison
-        // Gas optimization analysis
-        // Slippage calculation
-    }
-}</code></pre>
-            
             <h4 class="yellow-header">Aggregation & Routing Engine</h4>
             <pre><code>// Cross-DEX trade routing
 contract LiquidityAggregator {
@@ -389,35 +367,6 @@ contract LiquidityAggregator {
     // MEV protection mechanisms
     // Slippage optimization
 }</code></pre>
-            
-            <h3>2.2 Portfolio Analytics</h3>
-            <p>Real-time risk assessment and optimization recommendations:</p>
-            <ul>
-                <li><strong>Value at Risk (VaR)</strong> calculations</li>
-                <li><strong>Correlation analysis</strong> across holdings</li>
-                <li><strong>Stress testing</strong> under market scenarios</li>
-                <li><strong>Optimal portfolio</strong> rebalancing suggestions</li>
-            </ul>
-            
-            <h3>2.3 Backend Infrastructure</h3>
-            
-            <h4 class="yellow-header">Real-Time Data Processing</h4>
-            <pre><code>// WebSocket connections for live market data
-class MarketDataManager {
-    // HyperCore API integration
-    // DEX price feed aggregation
-    // Yield rate monitoring
-    // Risk metric calculations
-}</code></pre>
-            
-            <h4 class="yellow-header">Database Architecture</h4>
-            <pre><code>-- PostgreSQL schema for analytics
-Tables:
-• user_positions: Real-time position tracking
-• vault_performance: Historical yield data
-• trading_history: Complete transaction records
-• risk_metrics: Real-time risk assessments
-• protocol_revenue: Fee collection and distribution</code></pre>
             
             <h2>3. Token Economics</h2>
             
@@ -607,6 +556,18 @@ Tables:
             <p>HyperFlow Protocol represents a significant advancement in DeFi infrastructure for the HyperEVM ecosystem. Through innovative technical solutions, community governance, and user-centric tokenomics, HyperFlow positions itself as the foundational layer for next-generation DeFi applications.</p>
             
             <p>The protocol's emphasis on community ownership, transparent operations, and sustainable revenue sharing creates a new paradigm for DeFi infrastructure that prioritizes user value over protocol profits.</p>
+            
+            <h2>Disclaimer</h2>
+            <p>This whitepaper is for informational purposes only and does not constitute investment advice, financial advice, trading advice, or any other sort of advice. The information contained herein is subject to change and may become outdated. Potential participants should conduct their own research and consult with qualified professionals before making any investment decisions.</p>
+            
+            <p>Cryptocurrency investments carry significant risk, including the potential for total loss of capital. Past performance does not guarantee future results. The HyperFlow Protocol is experimental technology and may contain bugs or vulnerabilities despite extensive testing and auditing.</p>
+            
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155; color: #64748b; font-size: 0.9rem; text-align: center;">
+                <p><strong>Document Version</strong>: 1.0<br>
+                <strong>Last Updated</strong>: Latest Version<br>
+                <strong>Contact</strong>: team@hyperflow.protocol<br>
+                <strong>Website</strong>: https://hyperflow.protocol</p>
+            </div>
         </div>
     </div>
 </body>
